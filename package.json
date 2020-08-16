@@ -1,0 +1,32 @@
+{
+	"scripts": {
+		"clean": "rm -rf dist",
+		"build": "npm run clean && npm run build:styles && DEBUG=* ELEVENTY_ENV=production eleventy",
+		"build:styles": "sass --embed-sources --embed-source-map src/_styles:src/_includes",
+		"start": "npm-run-all clean --parallel watch:*",
+		"watch:eleventy": "eleventy --serve --quiet",
+		"watch:sass": "npm run build:styles -- --watch"
+	},
+	"devDependencies": {
+		"@11ty/eleventy": "^0.11.0",
+		"@11ty/eleventy-plugin-rss": "^1.0.9",
+		"husky": "^4.2.5",
+		"lint-staged": "^10.2.11",
+		"luxon": "^1.24.1",
+		"npm-run-all": "^4.1.5",
+		"prettier": "^2.0.5",
+		"sass": "^1.26.10"
+	},
+	"engines": {
+		"node": ">=12"
+	},
+	"private": true,
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{js,json,yml,scss}": "prettier --write"
+	}
+}

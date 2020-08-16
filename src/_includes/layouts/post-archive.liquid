@@ -1,0 +1,25 @@
+---
+layout: layouts/base
+---
+
+<main class="mt-5">
+	<div class="cluster cluster-justify-between cluster-align-end cluster-space-x-4 cluster-space-y-1">
+		<h1 class="text-xlg">投稿</h1>
+		<p>
+			<a class="button text-sm color-text-muted weight-bold" href="/posts-feed.xml">
+				<span class="with-icon with-icon-space">
+					<svg class="icon color-primary" viewBox="0 0 1 1"><use href="#icon-rss"></svg>
+					<span>RSS</span>
+				</span>
+			</a>
+		</p>
+	</div>
+
+	<div class="stack stack-space-4 mt-5">
+		{% for post in collections.post %}
+			{% assign url = post.url | prettyUrl %}
+			{% assign published = post.fileSlug | timeTag %}
+			{% include teaser with level: 2, title: post.data.title, url, description: post.data.description, meta: published %}
+		{% endfor %}
+	</div>
+</main>

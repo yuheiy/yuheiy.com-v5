@@ -1,0 +1,38 @@
+---
+layout: layouts/base
+---
+
+<main class="stack stack-space-6 mt-5">
+	<h1 class="display-name cluster cluster-space-x-2 cluster-space-y-1 text-xxlg">
+		<ruby>安田<rp>（</rp><rt class="text-sm color-text-muted weight-base">やすだ</rt><rp>）</rp></ruby>
+		<ruby>祐平<rp>（</rp><rt class="text-sm color-text-muted weight-base">ゆうへい</rt><rp>）</rp></ruby>
+	</h1>
+
+	<div class="stack-space-3">
+		<div class="stack measure text-lg color-text-muted">
+			{{ content }}
+		</div>
+	</div>
+
+	<section id="posts" aria-labelledby="posts-heading">
+		<div class="stack stack-space-4">
+			<h2 id="posts-heading" class="color-text-muted">おもな投稿</h2>
+
+			{% for post in posts %}
+				{% assign url = post.url | prettyUrl %}
+				{% include teaser with level: 3, title: post.title, url, description: post.description, meta: post.provider %}
+			{% endfor %}
+		</div>
+	</section>
+
+	<section id="projects" aria-labelledby="projects-heading">
+		<div class="stack stack-space-4">
+			<h2 id="projects-heading" class="color-text-muted">プロジェクト</h2>
+
+			{% for project in projects %}
+				{% assign url = project.url | prettyUrl %}
+				{% include teaser with level: 3, title: project.title, url, description: project.description %}
+			{% endfor %}
+		</div>
+	</section>
+</main>

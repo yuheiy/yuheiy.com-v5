@@ -1,0 +1,16 @@
+{% if forloop.index > 1 %}<div class="divider"></div>{% endif %}
+
+<div>
+	<article class="stack stack-space-1">
+		{% if meta %}<p class="text-sm color-text-muted">{{ meta }}</p>{% endif %}
+		<h{{ level }} class="text-lg">
+			<a class="button" href="{{ url }}">
+				<span class="with-icon">
+					<span class="measure">{{ title }}</span>
+					<svg class="icon color-primary" viewBox="0 0 1 1"><use href="#icon-chevron-right"></svg>
+				</span>
+			</a>
+		</h{{level}}>
+		<p class="measure color-text-muted">{{ description }}</p>
+	</article>
+</div>
