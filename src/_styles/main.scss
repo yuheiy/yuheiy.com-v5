@@ -278,6 +278,10 @@ svg:not(:root) {
 	align-items: center;
 }
 
+.with-icon .icon {
+	flex-shrink: 0;
+}
+
 .with-icon-space .icon:first-child {
 	margin-right: 0.75em;
 }
