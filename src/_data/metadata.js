@@ -1,6 +1,6 @@
 const eleventyPkg = require("@11ty/eleventy/package.json");
 
-const title = "yuheiy.com";
+const title = "Yuhei Yasuda";
 const origin = "https://yuheiy.com";
 const description =
 	"フロントエンドウェブ開発者。HTMLやWAI-ARIA・CSS設計・レスポンシブデザイン・シングルページアプリケーション・プログレッシブエンハンスメント・アクセシビリティ・UIデザインが関心領域。業務では運用を見据えたコーポレートサイトやメディアサイトなどの受託開発に携わる。";
