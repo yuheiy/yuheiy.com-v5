@@ -15,7 +15,7 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addFilter("timeTag", (fileSlug) => {
 		const published = DateTime.fromFormat(fileSlug.slice(0, 8), "yyyyMMdd");
 		const htmlDate = published.toFormat("yyyy-MM-dd");
-		const displayDate = published.toFormat("yyyy年M月dd日");
+		const displayDate = published.toFormat("yyyy年M月d日");
 		return `<time datetime="${htmlDate}">${displayDate}</time>`;
 	});
 
