@@ -183,6 +183,18 @@ svg:not(:root) {
 	}
 }
 
+@each $name, $justify in (end: flex-end, between: space-between) {
+	.justify-#{$name} {
+		justify-content: $justify;
+	}
+}
+
+@each $name, $align in (end: flex-end) {
+	.align-#{$name} {
+		align-items: $align;
+	}
+}
+
 .measure {
 	max-width: $measure * 1em;
 }
@@ -237,18 +249,6 @@ svg:not(:root) {
 	flex-wrap: wrap;
 	margin-top: calc(var(--cluster-space-y) * -1);
 	margin-left: calc(var(--cluster-space-x) * -1);
-}
-
-@each $name, $justify in (end: flex-end, between: space-between) {
-	.cluster-justify-#{$name} {
-		justify-content: $justify;
-	}
-}
-
-@each $name, $align in (end: flex-end) {
-	.cluster-align-#{$name} {
-		align-items: $align;
-	}
 }
 
 @each $name, $space in $spaces {
