@@ -16,7 +16,8 @@ layout: layouts/base
 	</div>
 
 	<div class="stack stack-space-4 mt-5">
-		{% for post in collections.post %}
+		{% assign posts = collections.post | reverse %}
+		{% for post in posts %}
 			{% assign url = post.url | prettyUrl %}
 			{% assign published = post.fileSlug | timeTag %}
 			{% include teaser with level: 2, title: post.data.title, url, description: post.data.description, meta: published %}
