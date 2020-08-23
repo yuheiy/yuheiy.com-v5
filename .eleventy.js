@@ -55,6 +55,7 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.setBrowserSyncConfig({
 		ui: false,
 		ghostMode: false,
+		logFileChanges: false,
 	});
 
 	eleventyConfig.setUseGitIgnore(false);
