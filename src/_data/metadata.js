@@ -19,12 +19,12 @@ module.exports = {
 		title: feedTitle,
 		subtitle: description,
 		path: "/posts-feed.xml",
-		id: `${origin}/`,
+		id: `${origin}/posts`,
 	},
 	jsonfeed: {
 		title: feedTitle,
 		path: "/posts-feed.json",
-		url: `${origin}/feed.json`,
+		url: `${origin}/posts-feed.json`,
 	},
 	author: {
 		name: "安田 祐平",
