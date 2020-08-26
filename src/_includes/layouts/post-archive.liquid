@@ -2,9 +2,9 @@
 layout: layouts/base
 ---
 
-<main class="mt-5">
+<main class="mt-xl">
 	<div class="cluster cluster-space-x-4 cluster-space-y-1 justify-between">
-		<h1 class="text-xlg">投稿</h1>
+		<h1 class="text-xl">投稿</h1>
 		<p>
 			<a class="button text-sm color-text-muted weight-bold" href="/posts-feed.xml">
 				<span class="with-icon with-icon-space">
@@ -15,7 +15,7 @@ layout: layouts/base
 		</p>
 	</div>
 
-	<div class="stack stack-space-4 mt-5">
+	<div class="stack stack-space-lg mt-xl">
 		{% assign posts = collections.post | reverse %}
 		{% for post in posts %}
 			{% assign url = post.url | prettyUrl %}

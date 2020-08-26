@@ -60,7 +60,7 @@ permalink: "{{ page.filePathStem }}.html"
 		</svg>
 
 		<div class="page">
-			<header class="header center pt-1 pb-1 text-sm color-text-muted weight-bold">
+			<header class="header center pt-xs pb-xs text-sm color-text-muted weight-bold">
 				<div class="cluster cluster-space-x-5 cluster-space-y-2 justify-between">
 					<p>
 						<a class="header__logo button" {%if page.url != "/"%}href="/"{%endif%}>
@@ -82,7 +82,7 @@ permalink: "{{ page.filePathStem }}.html"
 				{{ content }}
 			</div>
 
-			<footer class="center mt-5 text-sm color-text-muted weight-bold">
+			<footer class="center mt-xl text-sm color-text-muted weight-bold">
 				<p class="cluster justify-end">
 					<a class="button" href="{{ metadata.repositoryUrl }}/commits/master{{ page.inputPath | remove_first: "." }}">
 						<span class="with-icon with-icon-space">
@@ -93,8 +93,8 @@ permalink: "{{ page.filePathStem }}.html"
 				</p>
 			</footer>
 
-			<footer class="footer center mt-3 pt-3 pb-3 text-sm color-text-muted weight-bold">
-				<div class="cluster cluster-space-x-5 cluster-space-y-2 justify-between">
+			<footer class="footer center mt-base pt-base pb-base text-sm color-text-muted weight-bold">
+				<div class="cluster cluster-space-x-xl cluster-space-y-sm justify-between">
 					<div>
 						<ul class="cluster cluster-space-y-0">
 							<li><a class="button" href="/">ホーム</a></li>

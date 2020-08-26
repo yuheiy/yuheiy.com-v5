@@ -2,20 +2,20 @@
 layout: layouts/base
 ---
 
-<main class="stack stack-space-6 mt-5">
-	<h1 class="display-name cluster cluster-space-x-2 cluster-space-y-1 text-xxlg">
+<main class="stack stack-space-2xl mt-xl">
+	<h1 class="display-name cluster cluster-space-x-2 cluster-space-y-1 text-2xl">
 		<ruby>安田<rp>（</rp><rt class="text-sm color-text-muted weight-base">やすだ</rt><rp>）</rp></ruby>
 		<ruby>祐平<rp>（</rp><rt class="text-sm color-text-muted weight-base">ゆうへい</rt><rp>）</rp></ruby>
 	</h1>
 
-	<div class="stack-space-3">
+	<div class="stack-space-base">
 		<div class="stack measure text-lg color-text-muted">
 			{{ content }}
 		</div>
 	</div>
 
 	<section id="posts" aria-labelledby="posts-heading">
-		<div class="stack stack-space-4">
+		<div class="stack stack-space-lg">
 			<h2 id="posts-heading" class="color-text-muted">おもな投稿</h2>
 
 			{% for post in posts %}
@@ -26,7 +26,7 @@ layout: layouts/base
 	</section>
 
 	<section id="projects" aria-labelledby="projects-heading">
-		<div class="stack stack-space-4">
+		<div class="stack stack-space-lg">
 			<h2 id="projects-heading" class="color-text-muted">プロジェクト</h2>
 
 			{% for project in projects %}

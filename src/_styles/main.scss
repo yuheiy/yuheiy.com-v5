@@ -3,20 +3,20 @@
 $ratio: 1.8;
 
 $spaces: (
-	1: 1 / $ratio * 1rem,
-	2: 1rem,
-	3: $ratio * 1rem,
-	4: $ratio * $ratio * 1rem,
-	5: $ratio * $ratio * $ratio * 1rem,
-	6: $ratio * $ratio * $ratio * $ratio * 1rem,
+	xs: 1 / $ratio * 1rem,
+	sm: 1rem,
+	base: $ratio * 1rem,
+	lg: $ratio * $ratio * 1rem,
+	xl: $ratio * $ratio * $ratio * 1rem,
+	2xl: $ratio * $ratio * $ratio * $ratio * 1rem,
 );
 
 $text-sizes: (
 	sm: 0.875 * 1rem,
 	base: 1rem,
 	lg: 1.5 * 1rem,
-	xlg: 2 * 1rem,
-	xxlg: 3 * 1rem,
+	xl: 2 * 1rem,
+	2xl: 3 * 1rem,
 );
 
 $leadings: (
@@ -25,7 +25,7 @@ $leadings: (
 );
 
 $weights: (
-	base: normal,
+	base: 400,
 	bold: 700,
 );
 
@@ -49,7 +49,7 @@ $colors: (
 }
 
 :target {
-	scroll-margin-top: var(--space-2);
+	scroll-margin-top: var(--space-sm);
 }
 
 html,
@@ -211,7 +211,7 @@ svg:not(:root) {
 }
 
 .stack {
-	--stack-space: var(--space-3);
+	--stack-space: var(--space-base);
 }
 
 @each $name, $space in $spaces {
@@ -227,8 +227,11 @@ svg:not(:root) {
 .center {
 	display: grid;
 	grid-template-columns:
-		minmax(var(--space-3), 1fr) [content] minmax(0, ($ratio * $measure * 1rem))
-		minmax(var(--space-3), $ratio * 1fr);
+		minmax(var(--space-base), 1fr) [content] minmax(
+			0,
+			($ratio * $measure * 1rem)
+		)
+		minmax(var(--space-base), $ratio * 1fr);
 }
 
 .center > * {
@@ -236,8 +239,8 @@ svg:not(:root) {
 }
 
 .cluster {
-	--cluster-space-x: var(--space-3);
-	--cluster-space-y: var(--space-3);
+	--cluster-space-x: var(--space-base);
+	--cluster-space-y: var(--space-base);
 	display: flex;
 	flex-wrap: wrap;
 	margin-top: calc(var(--cluster-space-y) * -1);
@@ -336,7 +339,7 @@ svg:not(:root) {
 	display: block;
 	max-width: 8rem;
 	height: 0.5rem;
-	margin-top: var(--space-4);
+	margin-top: var(--space-lg);
 	background-color: var(--color-primary);
 }
 
@@ -346,7 +349,7 @@ svg:not(:root) {
 
 .post-body hr,
 .post-body hr + * {
-	--stack-space: var(--space-4);
+	--stack-space: var(--space-lg);
 }
 
 .post-body li {
