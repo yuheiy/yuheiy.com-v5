@@ -112,8 +112,8 @@ pre {
 	margin-bottom: 0;
 	padding: var(--space-base);
 	font-family: monospace, monospace;
-	font-size: 1em;
 	line-height: map.get($leadings, tight);
+	overflow-wrap: normal;
 	background-color: var(--color-background-variant);
 }
 
@@ -162,7 +162,6 @@ code,
 kbd,
 samp {
 	font-family: monospace, monospace;
-	font-size: 1em;
 }
 
 svg:not(:root) {
