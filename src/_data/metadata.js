@@ -19,7 +19,6 @@ module.exports = {
 		title: feedTitle,
 		subtitle: description,
 		path: "/posts-feed.xml",
-		id: `${origin}/posts`,
 	},
 	jsonfeed: {
 		title: feedTitle,

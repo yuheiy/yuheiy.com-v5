@@ -8,9 +8,10 @@ eleventyExcludeFromCollections: true
 	<subtitle>{{ metadata.feed.subtitle }}</subtitle>
 	{% set absoluteUrl %}{{ metadata.feed.path | absoluteUrl(metadata.url) }}{% endset %}
 	<link href="{{ absoluteUrl }}" rel="self"/>
-	<link href="{{ metadata.url }}"/>
+	{% set absoluteArchiveUrl %}{{ "/posts.html" | prettyUrl | absoluteUrl(metadata.url) }}{% endset %}
+	<link href="{{ absoluteArchiveUrl }}"/>
 	<updated>{{ collections.post | rssLastUpdatedDate }}</updated>
-	<id>{{ metadata.feed.id }}</id>
+	<id>{{ absoluteArchiveUrl }}</id>
 	<author>
 		<name>{{ metadata.author.name }}</name>
 		<email>{{ metadata.author.email }}</email>
