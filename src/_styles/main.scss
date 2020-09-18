@@ -107,8 +107,14 @@ hr {
 }
 
 pre {
+	overflow: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: var(--space-base);
 	font-family: monospace, monospace;
 	font-size: 1em;
+	line-height: map.get($leadings, tight);
+	background-color: var(--color-background-variant);
 }
 
 ol,
@@ -345,8 +351,15 @@ svg:not(:root) {
 }
 
 .post-body hr,
-.post-body hr + * {
-	--stack-space: var(--space-lg);
+.post-body hr + *,
+.post-body pre,
+.post-body pre + * {
+	--stack--space: var(--space-lg);
+}
+
+.post-body pre {
+	margin-right: calc(var(--space-base) * -1);
+	margin-left: calc(var(--space-base) * -1);
 }
 
 .post-body li {
