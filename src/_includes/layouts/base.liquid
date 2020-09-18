@@ -61,10 +61,10 @@ permalink: "{{ page.filePathStem }}.html"
 
 		<div class="page">
 			<header class="header center pt-xs pb-xs text-sm color-text-muted weight-bold">
-				<div class="cluster cluster-space-x-xl cluster-space-y-sm justify-between">
+				<div class="cluster cluster--space-x-xl cluster--space-y-sm justify-between">
 					<p>
 						<a class="header__logo button" {%if page.url != "/"%}href="/"{%endif%}>
-							<span class="with-icon with-icon-space">
+							<span class="with-icon with-icon--space">
 								<img class="icon" src="/yuhei.png" width="256" height="256" alt="" decoding="async">
 								<span>{{ metadata.title }}</span>
 							</span>
@@ -85,7 +85,7 @@ permalink: "{{ page.filePathStem }}.html"
 			<footer class="center mt-xl text-sm color-text-muted weight-bold">
 				<p class="cluster justify-end">
 					<a class="button" href="{{ metadata.repositoryUrl }}/commits/master{{ page.inputPath | remove_first: "." }}">
-						<span class="with-icon with-icon-space">
+						<span class="with-icon with-icon--space">
 							<svg class="icon color-primary" viewBox="0 0 1 1"><use href="#icon-history"></svg>
 							<span>編集履歴</span>
 						</span>
@@ -94,9 +94,9 @@ permalink: "{{ page.filePathStem }}.html"
 			</footer>
 
 			<footer class="footer center mt-base pt-base pb-base text-sm color-text-muted weight-bold">
-				<div class="cluster cluster-space-x-xl cluster-space-y-sm justify-between">
+				<div class="cluster cluster--space-x-xl cluster--space-y-sm justify-between">
 					<div>
-						<ul class="cluster cluster-space-y-0">
+						<ul class="cluster cluster--space-y-0">
 							<li><a class="button" href="/">ホーム</a></li>
 							<li><a class="button" href="{{ "/posts.html" | prettyUrl }}">投稿</a></li>
 							<li><a class="button" href="{{ metadata.repositoryUrl }}">ソースコード</a></li>

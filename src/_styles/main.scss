@@ -212,17 +212,17 @@ svg:not(:root) {
 }
 
 .stack {
-	--stack-space: var(--space-base);
+	--stack--space: var(--space-base);
+}
+
+.stack > * + * {
+	margin-top: var(--stack--space);
 }
 
 @each $name, $space in $spaces {
 	.stack-space-#{$name} {
-		--stack-space: var(--space-#{$name});
+		--stack--space: var(--space-#{$name});
 	}
-}
-
-.stack > * + * {
-	margin-top: var(--stack-space);
 }
 
 .center {
@@ -240,29 +240,29 @@ svg:not(:root) {
 }
 
 .cluster {
-	--cluster-space-x: var(--space-base);
-	--cluster-space-y: var(--space-base);
+	--cluster--space-x: var(--space-base);
+	--cluster--space-y: var(--space-base);
 	display: flex;
 	flex-wrap: wrap;
-	margin-top: calc(var(--cluster-space-y) * -1);
-	margin-left: calc(var(--cluster-space-x) * -1);
+	margin-top: calc(var(--cluster--space-y) * -1);
+	margin-left: calc(var(--cluster--space-x) * -1);
 }
 
 @each $name, $space in $spaces {
-	.cluster-space-x-#{$name} {
-		--cluster-space-x: var(--space-#{$name});
+	.cluster--space-x-#{$name} {
+		--cluster--space-x: var(--space-#{$name});
 	}
 }
 
 @each $name, $space in $spaces {
-	.cluster-space-y-#{$name} {
-		--cluster-space-y: var(--space-#{$name});
+	.cluster--space-y-#{$name} {
+		--cluster--space-y: var(--space-#{$name});
 	}
 }
 
 .cluster > * {
-	margin-top: var(--cluster-space-y);
-	margin-left: var(--cluster-space-x);
+	margin-top: var(--cluster--space-y);
+	margin-left: var(--cluster--space-x);
 }
 
 .icon {
@@ -279,11 +279,11 @@ svg:not(:root) {
 	flex-shrink: 0;
 }
 
-.with-icon-space .icon:first-child {
+.with-icon--space .icon:first-child {
 	margin-right: 0.75em;
 }
 
-.with-icon-space .icon:last-child {
+.with-icon--space .icon:last-child {
 	margin-left: 0.75em;
 }
 
