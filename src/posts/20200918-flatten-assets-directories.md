@@ -82,6 +82,7 @@ updated: '2020-09-18T18:49:15.728+09:00'
     └── header/
         ├── header.js
         ├── header.scss
+        ├── background.png
         └── logo.png
 ```
 
@@ -101,6 +102,7 @@ updated: '2020-09-18T18:49:15.728+09:00'
     └── header/
         ├── header.js
         ├── header.scss
+        ├── background.png
         └── logo.png
 ```
 
@@ -110,6 +112,7 @@ updated: '2020-09-18T18:49:15.728+09:00'
 .
 └── components/
     ├── header/
+    │   ├── background.png
     │   └── logo.png
     ├── breadcrumb.scss
     ├── button.scss
@@ -153,7 +156,7 @@ CSSファイル内の`url()`関数からもファイルを参照するために�
 
 .header {
   background-image: url("./header/background.png");
-   // -> `/assets/components/header/logo.[contenthash].png`
+   // -> `/assets/components/header/background.[contenthash].png`
 }
 ```
 
