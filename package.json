@@ -13,12 +13,12 @@
 		"@11ty/eleventy-plugin-rss": "^1.0.9",
 		"fast-glob": "^3.2.4",
 		"gray-matter": "^4.0.2",
-		"husky": "^4.2.5",
-		"luxon": "^1.24.1",
+		"husky": "^4.3.0",
+		"luxon": "^1.25.0",
 		"npm-run-all": "^4.1.5",
-		"prettier": "^2.0.5",
-		"pretty-quick": "^3.0.0",
-		"sass": "^1.26.10"
+		"prettier": "^2.1.2",
+		"pretty-quick": "^3.0.2",
+		"sass": "^1.26.11"
 	},
 	"engines": {
 		"node": ">=12"
