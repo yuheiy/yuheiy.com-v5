@@ -17,4 +17,4 @@ jobs:
       - run: node scripts/post-date.js
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Set post date
+          commit_message: Update post date
