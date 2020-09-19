@@ -18,7 +18,7 @@ module.exports = (eleventyConfig) => {
 	});
 
 	eleventyConfig.addFilter("timeTag", (isoDateString) => {
-		const published = DateTime.fromISO(isoDateString);
+		const published = DateTime.fromISO(isoDateString, { setZone: true });
 		const htmlDate = published.toISO();
 		const displayDate = published.toFormat("yyyy年M月d日");
 		return `<time datetime="${htmlDate}" title="${htmlDate}">${displayDate}</time>`;
