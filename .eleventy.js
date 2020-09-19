@@ -8,15 +8,20 @@ const isProduction = process.env.ELEVENTY_ENV === "production";
 module.exports = (eleventyConfig) => {
 	eleventyConfig.addPlugin(pluginRss);
 
-	eleventyConfig.addFilter("htmlDateString", (dateObj) => {
-		return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
+	// override @11ty/eleventy-plugin-rss
+	eleventyConfig.addFilter("rssLastUpdatedDate", (postCollection) => {
+		return postCollection
+			.map((item) => item.data.updated || item.data.published)
+			.sort((a, b) => {
+				return b.localeCompare(a);
+			})[0];
 	});
 
-	eleventyConfig.addFilter("timeTag", (fileSlug) => {
-		const published = DateTime.fromFormat(fileSlug.slice(0, 8), "yyyyMMdd");
-		const htmlDate = published.toFormat("yyyy-MM-dd");
+	eleventyConfig.addFilter("timeTag", (isoDateString) => {
+		const published = DateTime.fromISO(isoDateString);
+		const htmlDate = published.toISO();
 		const displayDate = published.toFormat("yyyy年M月d日");
-		return `<time datetime="${htmlDate}">${displayDate}</time>`;
+		return `<time datetime="${htmlDate}" title="${htmlDate}">${displayDate}</time>`;
 	});
 
 	eleventyConfig.addFilter("prettyUrl", (pathname) => {
