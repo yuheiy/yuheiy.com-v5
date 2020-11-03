@@ -3,6 +3,11 @@ layout: layouts/home
 title: 安田祐平
 posts:
 	-
+		title: 「JavaScript sprinkles in Basecamp turned Stimulus」の雑要約
+		url: /20201103-javascript-sprinkles-in-basecamp-turned-stimulus
+		description: Basecampで従来記述されていたJavaScriptのパターンを抽出しつつ良いパターンに導けるように、HTMLに直接属性を記述することで振る舞いを登録するStimulusというライブラリを作った話。またなぜReactのような「モダン」なアプローチを推奨しないのか。
+
+	-
 		title: Tailwind CSSの設計思想を業務に活かす
 		url: https://www.codegrid.net/series/2020-tailwind-talk
 		description: Tailwind CSSにまつわる座談会。
@@ -61,12 +66,6 @@ posts:
 		url: https://standard.shiftbrain.com/blog/the-gap-between-design-and-implementation-in-responsive-design
 		description: 自作ツールの紹介を通して、デザインカンプと実装の関係性・グリッドシステム・レスポンシブデザインの意味などを考察。
 		provider: シフトブレイン／スタンダードデザインユニット
-
-	-
-		title: SPAじゃないプロジェクトのための控えめなJavaScriptフレームワーク「Stimulus」
-		url: https://yuheiy.hatenablog.com/entry/2019/05/02/204549
-		description: SPA開発のための高機能なライブラリはよく話題に上がるが、JavaScriptありきでないドキュメント寄りのサイトに適したライブラリはあまり盛り上がらない。そのようなサイトでは割合としてのJavaScriptの量は少なくとも、規模によっては適切に設計できていなければ身動きが取れなくなっていく。
-		provider: yuhei blog
 
 	-
 		title: 制作者のためのHTML
