@@ -4,6 +4,7 @@ description: >-
   JavaScript sprinkles in Basecamp turned
   Stimulusより。Stimulusの設計意図を理解できる貴重な資料なのでまとめた。
 published: '2020-11-03T17:59:05.339+09:00'
+updated: '2020-11-03T18:28:05.911+09:00'
 ---
 
 [JavaScript sprinkles in Basecamp turned Stimulus](https://changelog.com/podcast/286)より。[Stimulus](https://stimulusjs.org/)の設計意図を理解できる貴重な資料なのでまとめた。
