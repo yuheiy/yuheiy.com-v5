@@ -5,7 +5,7 @@ posts:
 	-
 		title: 「JavaScript sprinkles in Basecamp turned Stimulus」の雑要約
 		url: /20201103-javascript-sprinkles-in-basecamp-turned-stimulus
-		description: Basecampで従来記述されていたJavaScriptのパターンを抽出しつつ良いパターンに導けるように、HTMLに直接属性を記述することで振る舞いを登録するStimulusというライブラリを作った話。またなぜReactのような「モダン」なアプローチを推奨しないのか。
+		description: Basecampで従来記述されていたJavaScriptのパターンを抽出しつつ良いパターンに導けるように、HTMLに直接属性を記述することで振る舞いを登録するStimulusというライブラリを作った話。またなぜReactのような「モダン」なアプローチを採用しないのか。
 
 	-
 		title: Tailwind CSSの設計思想を業務に活かす
