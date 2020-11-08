@@ -1,7 +1,7 @@
 {% if forloop.index > 1 %}<div class="divider"></div>{% endif %}
 
-<div>
-	<article class="stack stack-space-xs">
+<article>
+	<header class="stack stack-space-xs">
 		{% if meta %}<p class="text-sm color-text-muted">{{ meta }}</p>{% endif %}
 		<h{{ level }} class="text-lg">
 			<a class="button" href="{{ url }}">
@@ -11,6 +11,6 @@
 				</span>
 			</a>
 		</h{{level}}>
-		<p class="measure color-text-muted">{{ description }}</p>
-	</article>
-</div>
+	</header>
+	<p class="measure mt-xs color-text-muted">{{ description }}</p>
+</article>
