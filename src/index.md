@@ -87,6 +87,11 @@ posts:
 
 projects:
 	-
+		title: ゆうへいのプリントTシャツ
+		url: https://scrapbox.io/yuhei-print-tshirt/
+		description: 自分が集めたプリントTシャツを記録しているScrapbox。
+
+	-
 		title: accrefs
 		url: https://accrefs.jp/
 		description: ウェブアクセシビリティの参考資料をまとめたサイト。日本語の資料を中心にリンク数は200を超える。サイトのデザインおよび実装に携わる。有志のメンバーにより制作・運営されている。
