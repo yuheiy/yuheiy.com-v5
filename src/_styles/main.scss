@@ -230,6 +230,11 @@ svg:not(:root) {
 	}
 }
 
+.stack > .twitter-tweet {
+	margin-top: var(--stack--space) !important;
+	margin-bottom: 0 !important;
+}
+
 .center {
 	display: grid;
 	grid-template-columns:
