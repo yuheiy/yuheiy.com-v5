@@ -1,0 +1,33 @@
+			</div>
+
+			<div class="mt-6"></div>
+
+			{{#if isPostSingle}}
+			<footer class="center text-sm color-text-muted weight-bold">
+				<p class="cluster justify-end">
+					<a class="button pt-2 pb-2" href="https://github.com/{{metadata.repository}}/commits/main/{{page.inputPath}}">
+						<span class="with-icon">
+							<svg class="color-primary" viewBox="0 0 1 1" height="1em"><use href="#icon-history"></svg>
+							編集履歴
+						</span>
+					</a>
+				</p>
+				<div class="mt-3"></div>
+			</footer>
+			{{/if}}
+
+			<footer class="footer center pt-3 pb-3 text-sm color-text-muted weight-bold">
+				<div class="cluster gap-x-6 gap-y-1 justify-between items-center">
+					<ul class="cluster gap-x-4" role="list">
+						<li><a class="button pt-2 pb-2" href="/">ホーム</a></li>
+						<li><a class="button pt-2 pb-2" href="{{prettyUrl "/posts.html"}}">投稿</a></li>
+						<li><a class="button pt-2 pb-2" href="https://github.com/{{metadata.repository}}">ソースコード</a></li>
+					</ul>
+					<address>
+						{{> social-list}}
+					</address>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

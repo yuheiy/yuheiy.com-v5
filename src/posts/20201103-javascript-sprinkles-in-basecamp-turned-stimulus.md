@@ -1,10 +1,7 @@
 ---
 title: 「JavaScript sprinkles in Basecamp turned Stimulus」の雑要約
-description: >-
-  JavaScript sprinkles in Basecamp turned
-  Stimulusより。Stimulusの設計意図を理解できる貴重な資料なのでまとめた。
-published: '2020-11-03T17:59:05.339+09:00'
-updated: '2020-11-03T19:11:52.372+09:00'
+published: "2020-11-03T17:59:05.339+09:00"
+modified: "2020-11-03T19:11:52.372+09:00"
 ---
 
 「[JavaScript sprinkles in Basecamp turned Stimulus](https://changelog.com/podcast/286)」より。[Stimulus](https://stimulusjs.org/)の設計意図を理解できる貴重な資料なのでまとめた。

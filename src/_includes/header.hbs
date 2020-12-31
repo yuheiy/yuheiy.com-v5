@@ -1,30 +1,39 @@
----
-permalink: "{{ page.filePathStem }}.html"
----
 <!DOCTYPE html>
-<html lang="{{ metadata.lang }}">
+<html lang="{{metadata.lang}}">
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="{{metadata.encoding}}">
+
+		<title>{{title}} - {{metadata.siteTitle}}</title>
+
 		<meta name="viewport" content="width=device-width">
-		<title>{{ title }} - {{ metadata.title }}</title>
-		<meta name="description" content="{{ description | default: metadata.description }}">
+		{{#unless is404}}
+		<meta name="description" content="{{#if isPostSingle}}{{lede content}}{{else}}{{description}}{{/if}}">
+		{{/unless}}
+		<meta name="generator" content="{{env.generator}}">
+
+		{{#unless is404}}
+		<meta property="og:title" content="{{title}}">
+		<meta property="og:type" content="{{default ogType "website"}}">
+		<meta property="og:image" content="{{metadata.scheme}}://{{metadata.domain}}/yuhei.png">
+		<meta property="og:url" content="{{metadata.scheme}}://{{metadata.domain}}{{prettyUrl page.url}}">
+		<meta property="og:description" content="{{#if isPostSingle}}{{lede content}}{{else}}{{description}}{{/if}}">
+		<meta property="og:locale" content="{{metadata.lang}}_{{metadata.region}}">
+		<meta property="og:site_name" content="{{metadata.siteTitle}}">
+		{{/unless}}
+
+		{{#unless is404}}
 		<meta name="twitter:card" content="summary">
-		<meta property="og:title" content="{{ title }}">
-		<meta property="og:type" content="{{ type | default: "website" }}">
-		<meta property="og:image" content="{{ metadata.origin }}/yuhei.png">
-		<meta property="og:url" content="{{ metadata.origin }}{{ page.url | prettyUrl }}">
-		<meta property="og:description" content="{{ description | default: metadata.description }}">
-		<meta property="og:site_name" content="{{ metadata.title }}">
-		<meta property="og:locale" content="{{ metadata.lang }}_{{ metadata.region }}">
-		<meta name="generator" content="{{ metadata.generator }}">
-		<link rel="canonical" href="{{ metadata.origin }}{{ page.url | prettyUrl }}">
+		<meta name="twitter:site" content="@{{metadata.twitter}}">
+		{{/unless}}
+
+		{{#unless is404}}
+		<link rel="canonical" href="{{metadata.scheme}}://{{metadata.domain}}{{prettyUrl page.url}}">
+		{{/unless}}
+		<link rel="stylesheet" href="/prism-solarizedlight.css">
+		<link rel="stylesheet" href="/main.css">
+		<link rel="alternate" href="{{metadata.feed}}" type="application/atom+xml" title="投稿 - {{metadata.siteTitle}}">
+		<link rel="alternate" href="{{metadata.jsonFeed}}" type="application/json" title="投稿 - {{metadata.siteTitle}}">
 		<link rel="apple-touch-icon" href="/yuhei.png">
-		<link rel="alternate" href="{{ metadata.feed.path }}" type="application/atom+xml" title="{{ metadata.feed.title }}">
-		<link rel="alternate" href="{{ metadata.jsonfeed.path }}" type="application/json" title="{{ metadata.jsonfeed.title }}">
-		<style>
-			{% capture styles %}{% include main.css %}{% endcapture %}
-			{{ styles }}
-		</style>
 	</head>
 
 	<body>
@@ -42,11 +51,11 @@ permalink: "{{ page.filePathStem }}.html"
 				<circle cx="6.18" cy="17.82" r="2.18"/>
 				<path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
 			</symbol>
-			<symbol id="icon-arrow-back" viewBox="0 0 24 24">
+			<symbol id="icon-back" viewBox="0 0 24 24">
 				<path d="M0 0h24v24H0z" fill="none"/>
 				<path d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"/>
 			</symbol>
-			<symbol id="icon-chevron-right" viewBox="0 0 24 24">
+			<symbol id="icon-chevron" viewBox="0 0 24 24">
 				<path d="M0 0h24v24H0z" fill="none"/>
 				<path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
 			</symbol>
@@ -60,18 +69,18 @@ permalink: "{{ page.filePathStem }}.html"
 		</svg>
 
 		<div class="page">
-			<header class="header center pt-xs pb-xs text-sm color-text-muted weight-bold">
-				<div class="cluster cluster--space-x-xl cluster--space-y-sm justify-between">
+			<header class="header center pt-1 pb-1 text-sm color-text-muted weight-bold">
+				<div class="cluster gap-x-6 gap-y-1 justify-between items-center">
 					<p>
-						<a class="header__logo button" {%if page.url != "/"%}href="/"{%endif%}>
-							<span class="with-icon with-icon--space">
+						<a class="header__logo button pt-2 pb-2"{{#unless isHome}} href="/"{{/unless}}>
+							<span class="with-icon">
 								<img class="icon" src="/yuhei.png" width="256" height="256" alt="" decoding="async">
-								<span>{{ metadata.title }}</span>
+								{{metadata.siteTitle}}
 							</span>
 						</a>
 					</p>
 					<address>
-						{% include social-list %}
+						{{> social-list}}
 					</address>
 				</div>
 			</header>
@@ -79,34 +88,3 @@ permalink: "{{ page.filePathStem }}.html"
 			<div class="divider"></div>
 
 			<div class="center">
-				{{ content }}
-			</div>
-
-			<footer class="center mt-xl text-sm color-text-muted weight-bold">
-				<p class="cluster justify-end">
-					<a class="button" href="{{ metadata.repositoryUrl }}/commits/master{{ page.inputPath | remove_first: "." }}">
-						<span class="with-icon with-icon--space">
-							<svg class="icon color-primary" viewBox="0 0 1 1"><use href="#icon-history"></svg>
-							<span>編集履歴</span>
-						</span>
-					</a>
-				</p>
-			</footer>
-
-			<footer class="footer center mt-base pt-base pb-base text-sm color-text-muted weight-bold">
-				<div class="cluster cluster--space-x-xl cluster--space-y-sm justify-between">
-					<div>
-						<ul class="cluster cluster--space-y-0">
-							<li><a class="button" href="/">ホーム</a></li>
-							<li><a class="button" href="{{ "/posts.html" | prettyUrl }}">投稿</a></li>
-							<li><a class="button" href="{{ metadata.repositoryUrl }}">ソースコード</a></li>
-						</ul>
-					</div>
-					<address>
-						{% include social-list %}
-					</address>
-				</div>
-			</footer>
-		</div>
-	</body>
-</html>

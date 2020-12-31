@@ -1,2 +1,3 @@
-*.liquid
 *.md
+*.html
+*.hbs

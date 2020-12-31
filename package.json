@@ -1,24 +1,39 @@
 {
+	"name": "yuheiy.com-v5",
+	"description": "Yuhei Yasudaウェブサイトのソースファイルです",
+	"homepage": "https://yuheiy.com/",
+	"bugs": {
+		"url": "https://github.com/yuheiy/yuheiy.com-v5/issues",
+		"email": "yuhei.yasuda1003@gmail.com"
+	},
+	"license": "UNLICENSED",
+	"author": "Yuhei Yasuda <yuhei.yasuda1003@gmail.com> (https://yuheiy.com/)",
+	"repository": "yuheiy/yuheiy.com-v5",
 	"scripts": {
-		"clean": "rm -rf dist",
-		"build": "npm-run-all clean build:styles build:eleventy",
-		"build:eleventy": "DEBUG=* ELEVENTY_ENV=production eleventy",
-		"build:styles": "sass --embed-sources --embed-source-map src/_styles:src/_includes",
-		"start": "npm-run-all clean --parallel watch:*",
-		"watch:eleventy": "eleventy --serve --quiet",
-		"watch:styles": "npm run build:styles -- --watch"
+		"clean": "rimraf dist",
+		"sass": "sass --embed-sources --embed-source-map src/_styles:src",
+		"start": "npm-run-all clean sass --parallel start:*",
+		"start:eleventy": "eleventy --serve --quiet",
+		"start:sass": "npm run sass -- --watch",
+		"build": "npm-run-all clean sass build:eleventy",
+		"build:eleventy": "cross-env ELEVENTY_ENV=production eleventy",
+		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@11ty/eleventy": "^0.11.0",
-		"@11ty/eleventy-plugin-rss": "^1.0.9",
-		"fast-glob": "^3.2.4",
-		"gray-matter": "^4.0.2",
-		"husky": "^4.3.0",
+		"@11ty/eleventy": "^0.11.1",
+		"@11ty/eleventy-plugin-syntaxhighlight": "^3.0.4",
+		"cross-env": "^7.0.3",
+		"handlebars-helpers": "^0.10.0",
+		"husky": "^4.3.6",
+		"is-absolute-url": "^3.0.3",
+		"js-yaml": "^3.14.1",
+		"jsdom": "^16.4.0",
 		"luxon": "^1.25.0",
 		"npm-run-all": "^4.1.5",
-		"prettier": "^2.1.2",
-		"pretty-quick": "^3.0.2",
-		"sass": "^1.26.11"
+		"prettier": "^2.2.1",
+		"pretty-quick": "^3.1.0",
+		"rimraf": "^3.0.2",
+		"sass": "^1.32.0"
 	},
 	"engines": {
 		"node": ">=12"
@@ -28,8 +43,5 @@
 		"hooks": {
 			"pre-commit": "pretty-quick --staged"
 		}
-	},
-	"lint-staged": {
-		"*.{js,json,yml,scss}": "prettier --write"
 	}
 }

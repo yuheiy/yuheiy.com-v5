@@ -1,0 +1,24 @@
+{
+	"version": "https://jsonfeed.org/version/1",
+	"title": "投稿 - {{metadata.siteTitle}}",
+	"home_page_url": "{{metadata.scheme}}://{{metadata.domain}}{{prettyUrl "/posts.html"}}",
+	"feed_url": "{{metadata.scheme}}://{{metadata.domain}}{{metadata.jsonFeed}}",
+	"description": "{{metadata.description}}",
+	"author": {
+		"name": "{{metadata.simei}}",
+		"url": "{{metadata.scheme}}://{{metadata.domain}}/",
+		"avatar": "{{metadata.scheme}}://{{metadata.domain}}/yuhei.png"
+	},
+	"items": [
+		{{#each (reverse collections.post)}}
+		{
+			"id": "{{absoluteUrl this}}",
+			"url": "{{absoluteUrl this}}",
+			"title": "{{this.data.title}}",
+			"content_html": {{{JSONstringify (htmlToAbsoluteUrls this.templateContent (absoluteUrl this))}}},
+			"date_published": "{{this.data.published}}"{{#if this.data.modified}},
+			"date_modified": "{{this.data.modified}}"{{/if}}
+		}{{#unless @last}},{{/unless}}
+		{{/each}}
+	]
+}

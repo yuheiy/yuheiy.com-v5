@@ -1,0 +1,2 @@
+permalink: "{{metadata.feed}}"
+eleventyExcludeFromCollections: true

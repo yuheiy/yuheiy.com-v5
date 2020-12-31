@@ -1,0 +1,4 @@
+permalink: "{{page.filePathStem}}.html"
+eleventyExcludeFromCollections: true
+title: ページは存在しません
+is404: true

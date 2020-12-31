@@ -1,0 +1,2 @@
+permalink: "{{metadata.jsonFeed}}"
+eleventyExcludeFromCollections: true

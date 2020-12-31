@@ -1,60 +1,70 @@
-const path = require("path");
-const pluginRss = require("@11ty/eleventy-plugin-rss");
+const helpers = require("handlebars-helpers")();
+const isAbsoluteUrl = require("is-absolute-url");
+const yaml = require("js-yaml");
+const { JSDOM } = require("jsdom");
 const { DateTime } = require("luxon");
-const grayMatter = require("gray-matter");
+const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
-const isProduction = process.env.ELEVENTY_ENV === "production";
+const isDev = process.env.ELEVENTY_ENV !== "production";
+
+const ledeCache = new Map();
 
 module.exports = (eleventyConfig) => {
 	eleventyConfig.addPlugin(pluginRss);
+	eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
-	// override @11ty/eleventy-plugin-rss
-	eleventyConfig.addFilter("rssLastUpdatedDate", (postCollection) => {
-		return postCollection
-			.map((item) => item.data.updated || item.data.published)
-			.sort((a, b) => {
-				return b.localeCompare(a);
-			})[0];
+	eleventyConfig.addDataExtension("yml", (contents) => {
+		return yaml.safeLoad(contents);
 	});
 
-	eleventyConfig.addFilter("timeTag", (isoDateString) => {
+	eleventyConfig.addHandlebarsHelper("default", helpers.default);
+	eleventyConfig.addHandlebarsHelper("reverse", (array) => {
+		return [...array].reverse();
+	});
+	eleventyConfig.addHandlebarsHelper("JSONstringify", helpers.JSONstringify);
+
+	eleventyConfig.addFilter("prettyUrl", prettyUrl);
+
+	eleventyConfig.addFilter("absoluteUrl", (item) => {
+		const { metadata } = item.data;
+		const base = `${metadata.scheme}://${metadata.domain}`;
+		return `${base}${prettyUrl(item.url)}`;
+	});
+
+	eleventyConfig.addFilter("lede", (html) => {
+		if (!ledeCache.has(html)) {
+			const fragment = JSDOM.fragment(html);
+			const paragraphElement = fragment.querySelector("p");
+			if (!paragraphElement) {
+				throw new Error("The HTML fragment must have a <p> element");
+			}
+			ledeCache.set(html, paragraphElement.textContent);
+		}
+		return ledeCache.get(html);
+	});
+
+	eleventyConfig.addFilter("timeHtml", (isoDateString) => {
 		const published = DateTime.fromISO(isoDateString, { setZone: true });
 		const htmlDate = published.toISO();
 		const displayDate = published.toFormat("yyyy年M月d日");
-		return `<time datetime="${htmlDate}" title="${htmlDate}">${displayDate}</time>`;
-	});
-
-	eleventyConfig.addFilter("prettyUrl", (pathname) => {
-		if (!isProduction) {
-			return pathname;
-		}
-		if (!pathname.startsWith("/") || pathname.startsWith("//")) {
-			return pathname;
-		}
-		const { dir, name } = path.parse(pathname);
-		return path.join(dir, name);
+		return `<time datetime="${htmlDate}">${displayDate}</time>`;
 	});
 
 	eleventyConfig.addCollection("post", (collection) => {
 		return collection.getFilteredByGlob("src/posts/*.md").sort((a, b) => {
-			return a.inputPath.localeCompare(b.inputPath);
+			return (
+				DateTime.fromISO(a.data.published) - DateTime.fromISO(b.data.published)
+			);
 		});
 	});
 
-	eleventyConfig.addPassthroughCopy({ static: "." });
+	eleventyConfig.setUseGitIgnore(false);
 
-	// https://github.com/romefrontend/rome/blob/bf56d156a996eea0a4047083e9ee582f7a5dbe3e/website/.eleventy.js#L240-L251
-	// Customize YAML engine so we can parse hard tabs lol...
-	eleventyConfig.setFrontMatterParsingOptions({
-		engines: {
-			yaml: {
-				...grayMatter.engines.yaml,
-				parse(content) {
-					content = content.replace(/\t/g, "  ");
-					return grayMatter.engines.yaml.parse(content);
-				},
-			},
-		},
+	eleventyConfig.addPassthroughCopy({
+		public: ".",
+		"src/main.css": "main.css",
+		"node_modules/prismjs/themes/prism-solarizedlight.css":
+			"prism-solarizedlight.css",
 	});
 
 	eleventyConfig.setBrowserSyncConfig({
@@ -63,12 +73,46 @@ module.exports = (eleventyConfig) => {
 		logFileChanges: false,
 	});
 
-	eleventyConfig.setUseGitIgnore(false);
-
 	return {
 		dir: {
 			input: "src",
 			output: "dist",
 		},
+		markdownTemplateEngine: "hbs",
 	};
 };
+
+// trim `.html` from URL in production
+function prettyUrl(url) {
+	if (isDev) {
+		return url;
+	}
+	if (isAbsoluteUrl(url)) {
+		return url;
+	}
+	return url.replace(/\.html$/, "");
+}
+
+// fork of:
+// https://github.com/11ty/eleventy-plugin-rss/blob/master/.eleventy.js
+function pluginRss(eleventyConfig) {
+	eleventyConfig.addFilter("rssLastUpdatedDate", (collection) => {
+		if (!collection || !collection.length) {
+			throw new Error("Collection is empty in rssLastUpdatedDate filter.");
+		}
+
+		// Newest date in the collection
+		return DateTime.fromMillis(
+			Math.max(
+				...collection.map((item) => {
+					return DateTime.fromISO(item.data.modified || item.data.published);
+				})
+			)
+		).toISO();
+	});
+
+	eleventyConfig.addFilter("htmlToAbsoluteUrls", (htmlContent, base) => {
+		// TODO
+		return htmlContent;
+	});
+}

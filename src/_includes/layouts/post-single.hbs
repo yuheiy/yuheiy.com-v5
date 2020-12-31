@@ -1,0 +1,27 @@
+{{> header}}
+
+<footer>
+	<p class="mt-3 text-sm color-text-muted weight-bold">
+		<a class="button pt-2 pb-2" href="{{prettyUrl "/posts.html"}}">
+			<span class="with-icon">
+				<svg class="color-primary" viewBox="0 0 1 1" height="1em"><use href="#icon-back"></svg>
+				投稿
+			</span>
+		</a>
+	</p>
+</footer>
+
+<main>
+	<article>
+		<header>
+			<p class="mt-6 text-sm color-text-muted">{{{timeHtml published}}}</p>
+			<h1 class="post-title mt-2 text-2xl">{{title}}</h1>
+		</header>
+
+		<div class="post-body stack-4 mt-6">
+			{{{content}}}
+		</div>
+	</article>
+</main>
+
+{{> footer}}

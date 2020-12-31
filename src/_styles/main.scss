@@ -1,44 +1,59 @@
-@use "sass:map";
+// Colors
 
-$ratio: 1.8;
-
-$spaces: (
-	0: 0,
-	xs: 1 / $ratio * 1rem,
-	sm: 1rem,
-	base: $ratio * 1rem,
-	lg: $ratio * $ratio * 1rem,
-	xl: $ratio * $ratio * $ratio * 1rem,
-	2xl: $ratio * $ratio * $ratio * $ratio * 1rem,
+$colors: (
+	text: hsl(0 0% 13%),
+	text-muted: hsl(0 0% 44%),
+	primary: hsl(306 100% 69%),
+	border: hsl(306 14% 94%),
+	background: hsl(0 0% 100%),
+	background-variant: hsl(306 14% 96%),
 );
 
-$text-sizes: (
-	sm: 0.875 * 1rem,
+// Measure
+
+$measure: 40;
+
+// Text
+
+$text-factor-at-narrow: 7;
+$text-factor-narrow-viewport-width: 320;
+$text-factor-at-wide: 6;
+$text-factor-wide-viewport-width: 1440;
+
+$texts: (
 	base: 1rem,
-	lg: 1.5 * 1rem,
-	xl: 2 * 1rem,
-	2xl: 3 * 1rem,
+	sm: calc(var(--text-factor) / (var(--text-factor) + 1) * var(--text-base)),
+	lg: calc(var(--text-factor) / (var(--text-factor) - 1) * var(--text-base)),
+	xl: calc(var(--text-factor) / (var(--text-factor) - 2) * var(--text-base)),
+	2xl: calc(var(--text-factor) / (var(--text-factor) - 4) * var(--text-base)),
 );
+
+// Leadings
 
 $leadings: (
-	base: $ratio,
+	base: 1.8,
 	tight: 1.5,
 );
+
+// Weights
 
 $weights: (
 	base: 400,
 	bold: 700,
 );
 
-$measure: 40;
+// Spaces
 
-$colors: (
-	text: hsl(0, 0%, 13%),
-	text-muted: hsl(0, 0%, 44%),
-	primary: hsl(306, 100%, 69%),
-	border: hsl(306, 14%, 94%),
-	background: hsl(0, 0%, 100%),
-	background-variant: hsl(306, 14%, 96%),
+$space-unit: var(--text-2xl) / 8;
+
+$spaces: (
+	1: calc(1 * var(--space-unit)),
+	2: calc(2 * var(--space-unit)),
+	3: calc(3 * var(--space-unit)),
+	4: calc(5 * var(--space-unit)),
+	5: calc(8 * var(--space-unit)),
+	6: calc(13 * var(--space-unit)),
+	7: calc(21 * var(--space-unit)),
 );
 
 // Base
@@ -49,32 +64,68 @@ $colors: (
 	box-sizing: border-box;
 }
 
-:target {
-	scroll-margin-top: var(--space-sm);
-}
-
-html,
-body {
-	height: 100%;
-}
-
 html {
-	@each $name, $space in $spaces {
-		--space-#{$name}: #{$space};
-	}
-	@each $name, $color in $colors {
-		--color-#{$name}: #{$color};
+	$text-factor: $text-factor-at-narrow;
+	--text-factor: #{$text-factor};
+
+	$width: $text-factor-narrow-viewport-width;
+	$media-query-steps: 100;
+	$viewport-width-step: (
+			$text-factor-wide-viewport-width - $text-factor-narrow-viewport-width
+		) / $media-query-steps;
+	$text-factor-step: ($text-factor-at-wide - $text-factor-at-narrow) /
+		$media-query-steps;
+
+	@while $width < $text-factor-wide-viewport-width {
+		$width: $width + $viewport-width-step;
+		$width-as-em: $width / 16 * 1em;
+
+		@media (min-width: $width-as-em) {
+			$text-factor: $text-factor + $text-factor-step;
+			--text-factor: #{$text-factor};
+		}
 	}
 
+	@each $name, $value in $colors {
+		--color-#{$name}: #{$value};
+	}
+
+	--measure: #{$measure};
+
+	@each $name, $value in $texts {
+		--text-#{$name}: #{$value};
+	}
+
+	@each $name, $value in $leadings {
+		--leading-#{$name}: #{$value};
+	}
+
+	@each $name, $value in $weights {
+		--weight-#{$name}: #{$value};
+	}
+
+	--space-unit: #{$space-unit};
+
+	@each $name, $value in $spaces {
+		--space-#{$name}: #{$value};
+	}
+
+	height: 100%;
 	font-family: sans-serif;
-	line-height: map.get($leadings, base);
+	font-size: calc(1rem + 0.1vw);
+	line-height: var(--leading-base);
 	line-break: normal;
 	overflow-wrap: break-word;
 	text-underline-offset: 0.25em;
 	font-kerning: none;
 }
 
+:target {
+	scroll-margin-top: var(--space-2);
+}
+
 body {
+	height: 100%;
 	margin: 0;
 	color: var(--color-text);
 	background-color: var(--color-background);
@@ -87,7 +138,8 @@ h4 {
 	margin-top: 0;
 	margin-bottom: 0;
 	font-size: inherit;
-	line-height: map.get($leadings, tight);
+	line-height: var(--leading-tight);
+	font-weight: var(--weight-bold);
 	font-feature-settings: "palt" 1;
 	font-kerning: auto;
 }
@@ -99,22 +151,18 @@ p {
 }
 
 hr {
-	margin-top: 0;
+	margin-bottom: 0;
 	margin-bottom: 0;
 	height: 1px;
 	background-color: var(--color-border);
 	border: 0;
 }
 
-pre {
-	overflow: auto;
+pre[class*="language-"] {
 	margin-top: 0;
 	margin-bottom: 0;
-	padding: var(--space-base);
-	font-family: monospace, monospace;
-	line-height: map.get($leadings, tight);
-	overflow-wrap: normal;
-	background-color: var(--color-background-variant);
+	padding: var(--space-3);
+	font-size: var(--text-sm);
 }
 
 ol,
@@ -135,11 +183,6 @@ a {
 
 a:any-link:active {
 	background-color: hsla(0, 0%, 0%, 0.1);
-}
-
-strong,
-b {
-	font-weight: bolder;
 }
 
 em,
@@ -170,135 +213,147 @@ svg:not(:root) {
 
 // Utilities
 
-@each $name, $space in $spaces {
+@each $name, $value in $spaces {
 	.mt-#{$name} {
 		margin-top: var(--space-#{$name});
 	}
 }
 
-@each $name, $space in $spaces {
+@each $name, $value in $spaces {
 	.pt-#{$name} {
 		padding-top: var(--space-#{$name});
 	}
 }
 
-@each $name, $space in $spaces {
+@each $name, $value in $spaces {
 	.pb-#{$name} {
 		padding-bottom: var(--space-#{$name});
 	}
 }
 
-@each $name, $justify in (end: flex-end, between: space-between) {
-	.justify-#{$name} {
-		justify-content: $justify;
-	}
-}
-
 .measure {
-	max-width: $measure * 1em;
+	max-width: calc(var(--measure) * 1em);
 }
 
-@each $name, $size in $text-sizes {
+@each $name, $value in $texts {
 	.text-#{$name} {
-		font-size: $size;
+		font-size: var(--text-#{$name});
 	}
 }
 
-@each $name, $weight in $weights {
+@each $name, $value in $leadings {
+	.leading-#{$name} {
+		line-height: var(--leading-#{$name});
+	}
+}
+
+@each $name, $value in $weights {
 	.weight-#{$name} {
-		font-weight: $weight;
+		font-weight: var(--weight-#{$name});
 	}
 }
 
-@each $name, $color in $colors {
+.palt {
+	font-feature-settings: "palt" 1;
+	font-kerning: auto;
+}
+
+@each $name, $value in $colors {
 	.color-#{$name} {
 		color: var(--color-#{$name});
 	}
 }
 
-.stack {
-	--stack--space: var(--space-base);
-}
-
-.stack > * + * {
-	margin-top: var(--stack--space);
-}
-
-@each $name, $space in $spaces {
-	.stack-space-#{$name} {
-		--stack--space: var(--space-#{$name});
+@each $name, $value in $spaces {
+	.stack-#{$name} > * + * {
+		margin-top: var(--space-#{$name});
 	}
 }
 
-.stack > .twitter-tweet {
-	margin-top: var(--stack--space) !important;
-	margin-bottom: 0 !important;
-}
-
 .center {
+	$ratio: 1.6;
 	display: grid;
 	grid-template-columns:
-		minmax(var(--space-base), 1fr) [content] minmax(
+		minmax(var(--space-4), 1fr) [content] minmax(
 			0,
-			($ratio * $measure * 1rem)
+			calc(#{$ratio} * var(--measure) * var(--text-base))
 		)
-		minmax(var(--space-base), $ratio * 1fr);
+		minmax(var(--space-4), #{$ratio * 1fr});
 }
 
 .center > * {
 	grid-column: content;
 }
 
+@each $name,
+	$value
+		in (
+			start: flex-start,
+			end: flex-end,
+			center: center,
+			between: space-between
+		)
+{
+	.justify-#{$name} {
+		justify-content: $value;
+	}
+}
+
+@each $name,
+	$value
+		in (
+			start: flex-start,
+			end: flex-end,
+			center: center,
+			baseline: baseline,
+			stretch: stretch
+		)
+{
+	.items-#{$name} {
+		align-items: $value;
+	}
+}
+
+@each $name, $value in $spaces {
+	.gap-x-#{$name} {
+		column-gap: var(--space-#{$name});
+	}
+}
+
+@each $name, $value in $spaces {
+	.gap-y-#{$name} {
+		row-gap: var(--space-#{$name});
+	}
+}
+
 .cluster {
-	--cluster--space-x: var(--space-base);
-	--cluster--space-y: var(--space-base);
 	display: flex;
 	flex-wrap: wrap;
-	margin-top: calc(var(--cluster--space-y) * -1);
-	margin-left: calc(var(--cluster--space-x) * -1);
-}
-
-@each $name, $space in $spaces {
-	.cluster--space-x-#{$name} {
-		--cluster--space-x: var(--space-#{$name});
-	}
-}
-
-@each $name, $space in $spaces {
-	.cluster--space-y-#{$name} {
-		--cluster--space-y: var(--space-#{$name});
-	}
-}
-
-.cluster > * {
-	margin-top: var(--cluster--space-y);
-	margin-left: var(--cluster--space-x);
-}
-
-.icon {
-	width: 2em;
-	height: 2em;
 }
 
 .with-icon {
 	display: inline-flex;
 	align-items: center;
+	column-gap: 0.75em;
 }
 
-.with-icon .icon {
+.with-icon--no-space {
+	column-gap: 0;
+}
+
+.with-icon > svg,
+.with-icon > img {
 	flex-shrink: 0;
+	width: 2em;
+	height: 2em;
 }
 
-.with-icon--space > * + * {
-	margin-left: 0.75em;
-}
-
-// Blocks
+// Components
 
 .page {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	min-height: 100%;
 }
 
 .page > * {
@@ -336,38 +391,7 @@ svg:not(:root) {
 
 .button {
 	display: inline-flex;
-	align-items: center;
-	min-height: 3rem;
 	text-decoration: none;
-}
-
-.post-title::after {
-	content: "";
-	display: block;
-	max-width: 8rem;
-	height: 0.5rem;
-	margin-top: var(--space-lg);
-	background-color: var(--color-primary);
-}
-
-.post-body p {
-	max-width: $measure * 1em;
-}
-
-.post-body hr,
-.post-body hr + *,
-.post-body pre,
-.post-body pre + * {
-	--stack--space: var(--space-lg);
-}
-
-.post-body pre {
-	margin-right: calc(var(--space-base) * -1);
-	margin-left: calc(var(--space-base) * -1);
-}
-
-.post-body li {
-	list-style-type: inherit;
 }
 
 .display-name ruby {
@@ -379,4 +403,38 @@ svg:not(:root) {
 .display-name rt {
 	letter-spacing: 0.5em;
 	margin-right: -0.5em;
+}
+
+.post-title::after {
+	content: "";
+	display: block;
+	max-width: 8rem;
+	height: 0.5rem;
+	margin-top: var(--space-5);
+	background-color: var(--color-primary);
+}
+
+.post-body p {
+	max-width: calc(var(--measure) * 1em);
+}
+
+.post-body li {
+	list-style-type: inherit;
+}
+
+.post-body * + hr,
+.post-body hr + *,
+.post-body * + pre[class*="language-"],
+.post-body pre[class*="language-"] + *,
+.post-body .twitter-tweet + script + * {
+	margin-top: var(--space-5);
+}
+
+.post-body .twitter-tweet {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.post-body * + .twitter-tweet {
+	margin-top: var(--space-5) !important;
 }

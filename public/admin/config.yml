@@ -1,0 +1,75 @@
+backend:
+    name: git-gateway
+    branch: main
+
+media_folder: public/
+public_folder: /
+
+locale: ja
+
+collections:
+    - label: 投稿
+      name: posts
+      editor:
+          preview: false
+      sortable_fields:
+          - published
+          - title
+      folder: src/posts
+      fields:
+          - label: タイトル
+            name: title
+            widget: string
+          - label: 投稿日時
+            name: published
+            widget: datetime
+          - label: 変更日時
+            name: modified
+            widget: datetime
+            required: false
+          - label: 本文
+            name: body
+            widget: markdown
+    - label: その他
+      name: other
+      editor:
+          preview: false
+      files:
+          - label: ホーム
+            name: home
+            file: src/index.yml
+            fields:
+                - label: おもな投稿
+                  name: posts
+                  widget: list
+                  collapsed: false
+                  add_to_top: true
+                  fields:
+                      - label: タイトル
+                        name: title
+                        widget: string
+                      - label: リンク
+                        name: link
+                        widget: string
+                      - label: 説明文
+                        name: description
+                        widget: string
+                      - label: プロバイダー
+                        name: provider
+                        widget: string
+                        required: false
+                - label: プロジェクト
+                  name: projects
+                  widget: list
+                  collapsed: false
+                  add_to_top: true
+                  fields:
+                      - label: タイトル
+                        name: title
+                        widget: string
+                      - label: リンク
+                        name: link
+                        widget: string
+                      - label: 説明文
+                        name: description
+                        widget: string

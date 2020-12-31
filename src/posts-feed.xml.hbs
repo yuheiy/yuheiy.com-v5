@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>投稿 - {{metadata.siteTitle}}</title>
+	<subtitle>{{metadata.description}}</subtitle>
+	<link href="{{metadata.feed}}" rel="self"/>
+	<link href="{{metadata.scheme}}://{{metadata.domain}}{{prettyUrl "/post.html"}}"/>
+	<updated>{{rssLastUpdatedDate collections.post}}</updated>
+	<id>{{metadata.scheme}}://{{metadata.domain}}{{prettyUrl "/post.html"}}</id>
+	<author>
+		<name>{{metadata.simei}}</name>
+		<email>{{metadata.email}}</email>
+	</author>
+	{{#each (reverse collections.post)}}
+	<entry>
+		<title>{{this.data.title}}</title>
+		<link href="{{absoluteUrl this}}"/>
+		<updated>{{default this.data.modified this.data.published}}</updated>
+		<id>{{absoluteUrl this}}</id>
+		<content type="html">{{htmlToAbsoluteUrls this.templateContent (absoluteUrl this)}}</content>
+	</entry>
+	{{/each}}
+</feed>

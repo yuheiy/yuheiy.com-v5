@@ -1,0 +1,37 @@
+{{> header}}
+
+<main>
+	<h1 class="display-name cluster gap-x-2 mt-6 text-2xl">
+		<ruby>安田<rp>（</rp><rt class="text-sm color-text-muted weight-base">やすだ</rt><rp>）</rp></ruby>
+		<ruby>祐平<rp>（</rp><rt class="text-sm color-text-muted weight-base">ゆうへい</rt><rp>）</rp></ruby>
+	</h1>
+
+	<div class="stack-3 measure mt-3 text-lg color-text-muted">
+		<p>{{metadata.description}}</p>
+		<p>好きな仕様書は<a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a>、好きなCSSセレクタは<a href="https://developer.mozilla.org/ja/docs/Web/CSS/Type_selectors">要素型セレクター</a>。<a href="https://www.11ty.dev/">Eleventy</a>と<a href="https://stimulus.hotwire.dev/">Stimulus</a>、<a href="https://cube.fyi/">CUBE CSS</a>のファン。<a href="https://every-layout.dev/">Every Layout</a>の<a href="https://twitter.com/orange_juno/status/1230676123802988545">監訳作業中</a>。</p>
+	</div>
+
+	<section id="posts" aria-labelledby="posts-heading">
+		<h2 id="posts-heading" class="mt-7 color-text-muted">おもな投稿</h2>
+		<ol class="stack-5" role="list">
+			{{#each posts}}
+			<li>
+				{{> teaser title=this.title link=(prettyUrl this.link) description=this.description meta=this.provider}}
+			</li>
+			{{/each}}
+		</ol>
+	</section>
+
+	<section id="projects" aria-labelledby="projects-heading">
+		<h2 id="projects-heading" class="mt-7 color-text-muted">プロジェクト</h2>
+		<ul class="stack-5" role="list">
+			{{#each projects}}
+			<li>
+				{{> teaser title=this.title link=(prettyUrl this.link) description=this.description}}
+			</li>
+			{{/each}}
+		</ul>
+	</section>
+</main>
+
+{{> footer}}

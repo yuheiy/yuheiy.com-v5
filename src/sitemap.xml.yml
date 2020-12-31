@@ -1,0 +1,2 @@
+permalink: "{{page.filePathStem}}"
+eleventyExcludeFromCollections: true

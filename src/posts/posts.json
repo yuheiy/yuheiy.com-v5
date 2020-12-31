@@ -1,3 +1,6 @@
 {
-	"layout": "layouts/post-single"
+	"layout": "layouts/post-single",
+	"permalink": "{{page.fileSlug}}.html",
+	"isPostSingle": true,
+	"ogType": "article"
 }
