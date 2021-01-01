@@ -22,10 +22,10 @@ collections:
             widget: string
           - label: 投稿日時
             name: published
-            widget: datetime
+            widget: string
           - label: 変更日時
             name: modified
-            widget: datetime
+            widget: string
             required: false
           - label: 本文
             name: body
