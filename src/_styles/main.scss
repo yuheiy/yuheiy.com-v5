@@ -418,8 +418,18 @@ svg:not(:root) {
 	max-width: calc(var(--measure) * 1em);
 }
 
+.post-body ol,
+.post-body ul {
+	padding-left: var(--space-4);
+}
+
 .post-body li {
+	max-width: calc(var(--measure) * 1em);
 	list-style-type: inherit;
+}
+
+.post-body li {
+	margin-top: var(--space-1);
 }
 
 .post-body * + hr,
