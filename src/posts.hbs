@@ -16,7 +16,7 @@
 	<ol class="stack-5" role="list">
 		{{#each (reverse collections.post)}}
 		<li>
-			{{> teaser title=this.data.title link=this.url description=(lede templateContent) meta=(timeHtml this.data.published)}}
+			{{> teaser title=this.data.title link=(prettyUrl this.url) description=(lede templateContent) meta=(timeHtml this.data.published)}}
 		</li>
 		{{/each}}
 	</ol>
