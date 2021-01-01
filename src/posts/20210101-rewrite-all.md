@@ -1,6 +1,6 @@
 ---
 title: ぜんぶかきなおす
-published: 2021-01-01T02:56:21.828Z
+published: "2021-01-01T02:56:21.828Z"
 modified: ""
 ---
 
