@@ -12,7 +12,7 @@
 
 	<section id="posts" aria-labelledby="posts-heading">
 		<h2 id="posts-heading" class="mt-7 color-text-muted">おもな投稿</h2>
-		<ol class="stack-5" role="list">
+		<ol class="mt-5" role="list">
 			{{#each posts}}
 			<li>
 				{{> teaser title=this.title link=(prettyUrl this.link) description=this.description meta=this.provider}}
@@ -23,7 +23,7 @@
 
 	<section id="projects" aria-labelledby="projects-heading">
 		<h2 id="projects-heading" class="mt-7 color-text-muted">プロジェクト</h2>
-		<ul class="stack-5" role="list">
+		<ul class="mt-5" role="list">
 			{{#each projects}}
 			<li>
 				{{> teaser title=this.title link=(prettyUrl this.link) description=this.description}}
