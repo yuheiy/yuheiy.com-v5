@@ -1,3 +1,5 @@
+---
+layout: layouts/home
 permalink: "{{page.filePathStem}}.html"
 isHome: true
 
@@ -91,3 +93,8 @@ projects:
 eleventyComputed:
     title: "{{metadata.simei}}"
     description: "{{metadata.description}}"
+---
+
+{{metadata.description}}
+
+好きな仕様書は[ARIA in HTML](https://www.w3.org/TR/html-aria/)、好きなCSSセレクタは[要素型セレクター](https://developer.mozilla.org/ja/docs/Web/CSS/Type_selectors)。[Eleventy](https://www.11ty.dev/)と[Stimulus](https://stimulus.hotwire.dev/)、[CUBE CSS](https://cube.fyi/)のファン。[Every Layout](https://every-layout.dev/)の[監訳作業中](https://twitter.com/orange_juno/status/1230676123802988545)。

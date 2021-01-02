@@ -37,7 +37,7 @@ collections:
       files:
           - label: ホーム
             name: home
-            file: src/index.yml
+            file: src/index.md
             fields:
                 - label: おもな投稿
                   name: posts
@@ -73,3 +73,6 @@ collections:
                       - label: 説明文
                         name: description
                         widget: string
+                - label: 本文
+                    name: body
+                    widget: markdown
