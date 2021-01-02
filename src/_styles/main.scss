@@ -16,9 +16,9 @@ $measure: 40;
 // Text
 
 $scale-factor-at-narrow: 7;
-$scale-factor-narrow-viewport-width: 320;
+$scale-factor-narrow-viewport-width: 320 / 16 * 1em;
 $scale-factor-at-wide: 6;
-$scale-factor-wide-viewport-width: 1440;
+$scale-factor-wide-viewport-width: 1440 / 16 * 1em;
 
 $texts: (
 	base: 1rem,
@@ -78,9 +78,8 @@ html {
 
 	@while $width < $scale-factor-wide-viewport-width {
 		$width: $width + $viewport-width-step;
-		$width-as-em: $width / 16 * 1em;
 
-		@media (min-width: $width-as-em) {
+		@media (min-width: $width) {
 			$scale-factor: $scale-factor + $scale-factor-step;
 			--scale-factor: #{$scale-factor};
 		}
