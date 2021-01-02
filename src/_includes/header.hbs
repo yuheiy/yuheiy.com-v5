@@ -13,7 +13,7 @@
 
 		{{#unless is404}}
 		<meta property="og:title" content="{{title}}">
-		<meta property="og:type" content="{{default ogType "website"}}">
+		<meta property="og:type" content="{{#if ogType}}{{ogType}}{{else}}website{{/if}}">
 		<meta property="og:image" content="{{metadata.scheme}}://{{metadata.domain}}/yuhei.png">
 		<meta property="og:url" content="{{metadata.scheme}}://{{metadata.domain}}{{prettyUrl page.url}}">
 		<meta property="og:description" content="{{#if isPostSingle}}{{lede content}}{{else}}{{description}}{{/if}}">

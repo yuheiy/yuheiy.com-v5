@@ -17,7 +17,6 @@ module.exports = (eleventyConfig) => {
 		return yaml.safeLoad(contents);
 	});
 
-	eleventyConfig.addHandlebarsHelper("default", helpers.default);
 	eleventyConfig.addHandlebarsHelper("reverse", (array) => {
 		return [...array].reverse();
 	});

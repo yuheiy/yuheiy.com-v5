@@ -14,7 +14,7 @@
 	<entry>
 		<title>{{this.data.title}}</title>
 		<link href="{{absoluteUrl this}}"/>
-		<updated>{{default this.data.modified this.data.published}}</updated>
+		<updated>{{#if this.data.modified}}{{this.data.modified}}{{else}}{{this.data.published}}{{/if}}</updated>
 		<id>{{absoluteUrl this}}</id>
 		<content type="html">{{htmlToAbsoluteUrls this.templateContent (absoluteUrl this)}}</content>
 	</entry>
