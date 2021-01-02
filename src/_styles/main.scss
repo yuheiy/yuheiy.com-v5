@@ -44,7 +44,7 @@ $weights: (
 
 // Spaces
 
-$space-unit: var(--text-2xl) / 8;
+$space-unit: calc(var(--text-factor) / (var(--text-factor) - 4) * 0.125rem);
 
 $spaces: (
 	1: calc(1 * var(--space-unit)),
