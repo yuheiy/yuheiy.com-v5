@@ -15,17 +15,17 @@ $measure: 40;
 
 // Text
 
-$text-factor-at-narrow: 7;
-$text-factor-narrow-viewport-width: 320;
-$text-factor-at-wide: 6;
-$text-factor-wide-viewport-width: 1440;
+$scale-factor-at-narrow: 7;
+$scale-factor-narrow-viewport-width: 320;
+$scale-factor-at-wide: 6;
+$scale-factor-wide-viewport-width: 1440;
 
 $texts: (
 	base: 1rem,
-	sm: calc(var(--text-factor) / (var(--text-factor) + 1) * var(--text-base)),
-	lg: calc(var(--text-factor) / (var(--text-factor) - 1) * var(--text-base)),
-	xl: calc(var(--text-factor) / (var(--text-factor) - 2) * var(--text-base)),
-	2xl: calc(var(--text-factor) / (var(--text-factor) - 4) * var(--text-base)),
+	sm: calc(var(--scale-factor) / (var(--scale-factor) + 1) * var(--text-base)),
+	lg: calc(var(--scale-factor) / (var(--scale-factor) - 1) * var(--text-base)),
+	xl: calc(var(--scale-factor) / (var(--scale-factor) - 2) * var(--text-base)),
+	2xl: calc(var(--scale-factor) / (var(--scale-factor) - 4) * var(--text-base)),
 );
 
 // Leadings
@@ -44,7 +44,7 @@ $weights: (
 
 // Spaces
 
-$space-unit: calc(var(--text-factor) / (var(--text-factor) - 4) * 0.125rem);
+$space-unit: calc(var(--scale-factor) / (var(--scale-factor) - 4) * 0.125rem);
 
 $spaces: (
 	1: calc(1 * var(--space-unit)),
@@ -65,24 +65,24 @@ $spaces: (
 }
 
 html {
-	$text-factor: $text-factor-at-narrow;
-	--text-factor: #{$text-factor};
+	$scale-factor: $scale-factor-at-narrow;
+	--scale-factor: #{$scale-factor};
 
-	$width: $text-factor-narrow-viewport-width;
+	$width: $scale-factor-narrow-viewport-width;
 	$media-query-steps: 100;
 	$viewport-width-step: (
-			$text-factor-wide-viewport-width - $text-factor-narrow-viewport-width
+			$scale-factor-wide-viewport-width - $scale-factor-narrow-viewport-width
 		) / $media-query-steps;
-	$text-factor-step: ($text-factor-at-wide - $text-factor-at-narrow) /
+	$scale-factor-step: ($scale-factor-at-wide - $scale-factor-at-narrow) /
 		$media-query-steps;
 
-	@while $width < $text-factor-wide-viewport-width {
+	@while $width < $scale-factor-wide-viewport-width {
 		$width: $width + $viewport-width-step;
 		$width-as-em: $width / 16 * 1em;
 
 		@media (min-width: $width-as-em) {
-			$text-factor: $text-factor + $text-factor-step;
-			--text-factor: #{$text-factor};
+			$scale-factor: $scale-factor + $scale-factor-step;
+			--scale-factor: #{$scale-factor};
 		}
 	}
 

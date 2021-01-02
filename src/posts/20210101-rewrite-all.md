@@ -10,24 +10,24 @@ modified: ""
 
 ```css
 html {
-	--text-factor: 7;
+	--scale-factor: 7;
 }
 
 @media (min-width: 331.2px) {
 	html {
-		--text-factor: 6.99;
+		--scale-factor: 6.99;
 	}
 }
 
 @media (min-width: 342.4px) {
 	html {
-		--text-factor: 6.98;
+		--scale-factor: 6.98;
 	}
 }
 
 @media (min-width: 353.6px) {
 	html {
-		--text-factor: 6.97;
+		--scale-factor: 6.97;
 	}
 }
 
@@ -35,19 +35,19 @@ html {
 
 @media (min-width: 1417.6px) {
 	html {
-		--text-factor: 6.02;
+		--scale-factor: 6.02;
 	}
 }
 
 @media (min-width: 1428.8px) {
 	html {
-		--text-factor: 6.01;
+		--scale-factor: 6.01;
 	}
 }
 
 @media (min-width: 1440px) {
 	html {
-		--text-factor: 6;
+		--scale-factor: 6;
 	}
 }
 ```
@@ -59,10 +59,10 @@ html {
 ```css
 html {
 	--text-base: 1rem;
-	--text-sm: calc(var(--text-factor) / (var(--text-factor) + 1) * var(--text-base));
-	--text-lg: calc(var(--text-factor) / (var(--text-factor) - 1) * var(--text-base));
-	--text-xl: calc(var(--text-factor) / (var(--text-factor) - 2) * var(--text-base));
-	--text-2xl: calc(var(--text-factor) / (var(--text-factor) - 4) * var(--text-base));
+	--text-sm: calc(var(--scale-factor) / (var(--scale-factor) + 1) * var(--text-base));
+	--text-lg: calc(var(--scale-factor) / (var(--scale-factor) - 1) * var(--text-base));
+	--text-xl: calc(var(--scale-factor) / (var(--scale-factor) - 2) * var(--text-base));
+	--text-2xl: calc(var(--scale-factor) / (var(--scale-factor) - 4) * var(--text-base));
 }
 ```
 
