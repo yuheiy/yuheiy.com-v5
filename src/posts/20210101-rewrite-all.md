@@ -52,7 +52,7 @@ html {
 }
 ```
 
-もっとも狭いビューポート幅では`7`になって、`1440px`まで広がると`6`になる。そしてこれらの間の幅では間の値で補間される。メディアクエリで地道にやっているのがダサいけど、考え得る限りではこれが一番簡単になりそうだった。[Sassを使えば楽に作れる](https://github.com/yuheiy/yuheiy.com-v5/blob/99b31c35ba936257fa5b14b61bb4a6356b427e6a/src/_styles/main.scss#L68-L87)。
+もっとも狭いビューポート幅では`7`になって、`1440px`まで広がると`6`になる。そしてこれらの間の幅では間の値で補間される。メディアクエリで地道にやっているのがダサいけど、考え得る限りではこれが一番簡単になりそうだった。[Sassを使えば楽に作れる](https://github.com/yuheiy/yuheiy.com-v5/blob/e836b14653874ebf1b1c866633cda0a19971122d/src/_styles/main.scss#L68-L87)。
 
 続いてこの値を用いて、[調和数列にもとづいた計算方法](https://standard.shiftbrain.com/blog/harmonious-proportions-in-type-sizes)でフォントサイズのスケールを定義する。モジュラースケールでもいいんだけど、問題は[指摘されている通り](https://standard.shiftbrain.com/blog/music-math-typography)。
 
