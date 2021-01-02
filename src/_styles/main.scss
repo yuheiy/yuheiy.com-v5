@@ -68,23 +68,25 @@ html {
 	$scale-factor: $scale-factor-at-narrow;
 	--scale-factor: #{$scale-factor};
 
-	$width: $scale-factor-narrow-viewport-width;
-	$media-query-steps: 100;
+	$viewport-width: $scale-factor-narrow-viewport-width;
+	$scale-factor-steps: 100;
 	$viewport-width-step: (
 			$scale-factor-wide-viewport-width - $scale-factor-narrow-viewport-width
-		) / $media-query-steps;
+		) / $scale-factor-steps;
 	$scale-factor-step: ($scale-factor-at-wide - $scale-factor-at-narrow) /
-		$media-query-steps;
+		$scale-factor-steps;
 
-	@while $width < $scale-factor-wide-viewport-width {
-		$width: $width + $viewport-width-step;
+	@while $viewport-width < $scale-factor-wide-viewport-width {
+		$viewport-width: $viewport-width + $viewport-width-step;
 
-		@media (min-width: $width) {
+		@media (min-width: $viewport-width) {
 			$scale-factor: $scale-factor + $scale-factor-step;
 			--scale-factor: #{$scale-factor};
 		}
 	}
+}
 
+html {
 	@each $name, $value in $colors {
 		--color-#{$name}: #{$value};
 	}
