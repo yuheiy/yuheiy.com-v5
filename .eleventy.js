@@ -26,8 +26,8 @@ module.exports = (eleventyConfig) => {
 
 	eleventyConfig.addFilter("absoluteUrl", (item) => {
 		const { metadata } = item.data;
-		const base = `${metadata.scheme}://${metadata.domain}`;
-		return `${base}${prettyUrl(item.url)}`;
+		const origin = `${metadata.scheme}://${metadata.domain}`;
+		return `${origin}${prettyUrl(item.url)}`;
 	});
 
 	eleventyConfig.addFilter("lede", (html) => {
