@@ -119,6 +119,8 @@ html {
 	overflow-wrap: break-word;
 	text-underline-offset: 0.25em;
 	font-kerning: none;
+	color: var(--color-text);
+	background-color: var(--color-background);
 }
 
 :target {
@@ -128,8 +130,6 @@ html {
 body {
 	height: 100%;
 	margin: 0;
-	color: var(--color-text);
-	background-color: var(--color-background);
 }
 
 h1,
