@@ -35,6 +35,10 @@ module.exports = (eleventyConfig) => {
 			const fragment = JSDOM.fragment(html);
 			const paragraphElement = fragment.querySelector("p");
 			if (!paragraphElement) {
+				if (isDev) {
+					ledeCache.set(html, "");
+					return "";
+				}
 				throw new Error("The HTML fragment must have a <p> element");
 			}
 			ledeCache.set(html, paragraphElement.textContent);
