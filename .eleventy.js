@@ -34,14 +34,14 @@ module.exports = (eleventyConfig) => {
 		if (!ledeCache.has(html)) {
 			const fragment = JSDOM.fragment(html);
 			const paragraphElement = fragment.querySelector("p");
-			if (!paragraphElement) {
-				if (isDev) {
-					ledeCache.set(html, "");
-					return "";
+			if (paragraphElement) {
+				ledeCache.set(html, paragraphElement.textContent);
+			} else {
+				if (!isDev) {
+					throw new Error("The HTML fragment must have a <p> element");
 				}
-				throw new Error("The HTML fragment must have a <p> element");
+				ledeCache.set(html, "");
 			}
-			ledeCache.set(html, paragraphElement.textContent);
 		}
 		return ledeCache.get(html);
 	});
