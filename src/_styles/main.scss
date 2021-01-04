@@ -214,6 +214,47 @@ svg:not(:root) {
 
 // Utilities
 
+@each $name,
+	$value
+		in (
+			start: flex-start,
+			end: flex-end,
+			center: center,
+			between: space-between
+		)
+{
+	.justify-#{$name} {
+		justify-content: $value;
+	}
+}
+
+@each $name,
+	$value
+		in (
+			start: flex-start,
+			end: flex-end,
+			center: center,
+			baseline: baseline,
+			stretch: stretch
+		)
+{
+	.items-#{$name} {
+		align-items: $value;
+	}
+}
+
+@each $name, $value in $spaces {
+	.gap-x-#{$name} {
+		column-gap: var(--space-#{$name});
+	}
+}
+
+@each $name, $value in $spaces {
+	.gap-y-#{$name} {
+		row-gap: var(--space-#{$name});
+	}
+}
+
 @each $name, $value in $spaces {
 	.mt-#{$name} {
 		margin-top: var(--space-#{$name});
@@ -232,14 +273,14 @@ svg:not(:root) {
 	}
 }
 
-.measure {
-	max-width: calc(var(--measure) * 1em);
-}
-
 @each $name, $value in $texts {
 	.text-#{$name} {
 		font-size: var(--text-#{$name});
 	}
+}
+
+.measure {
+	max-width: calc(var(--measure) * 1em);
 }
 
 @each $name, $value in $leadings {
@@ -284,47 +325,6 @@ svg:not(:root) {
 
 .center > * {
 	grid-column: content;
-}
-
-@each $name,
-	$value
-		in (
-			start: flex-start,
-			end: flex-end,
-			center: center,
-			between: space-between
-		)
-{
-	.justify-#{$name} {
-		justify-content: $value;
-	}
-}
-
-@each $name,
-	$value
-		in (
-			start: flex-start,
-			end: flex-end,
-			center: center,
-			baseline: baseline,
-			stretch: stretch
-		)
-{
-	.items-#{$name} {
-		align-items: $value;
-	}
-}
-
-@each $name, $value in $spaces {
-	.gap-x-#{$name} {
-		column-gap: var(--space-#{$name});
-	}
-}
-
-@each $name, $value in $spaces {
-	.gap-y-#{$name} {
-		row-gap: var(--space-#{$name});
-	}
 }
 
 .cluster {
