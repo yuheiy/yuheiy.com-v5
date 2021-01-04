@@ -14,7 +14,7 @@ module.exports = (eleventyConfig) => {
 	eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
 	eleventyConfig.addDataExtension("yml", (contents) => {
-		return yaml.safeLoad(contents);
+		return yaml.load(contents);
 	});
 
 	eleventyConfig.addHandlebarsHelper("reverse", (array) => {
