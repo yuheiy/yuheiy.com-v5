@@ -11,7 +11,7 @@
 	"repository": "yuheiy/yuheiy.com-v5",
 	"scripts": {
 		"clean": "rimraf dist",
-		"sass": "sass --embed-sources --embed-source-map src/_styles:src",
+		"sass": "sass --embed-sources --embed-source-map src/_styles:public",
 		"start": "npm-run-all clean sass --parallel start:*",
 		"start:eleventy": "eleventy --serve --quiet",
 		"start:sass": "npm run sass -- --watch",

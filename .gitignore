@@ -116,4 +116,4 @@ dist
 .pnp.*
 
 # Project specific
-/src/main.css
+/public/main.css

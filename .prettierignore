@@ -1,3 +1,5 @@
 *.md
 *.html
 *.hbs
+dist/
+public/main.css

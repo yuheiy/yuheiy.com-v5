@@ -65,7 +65,6 @@ module.exports = (eleventyConfig) => {
 
 	eleventyConfig.addPassthroughCopy({
 		public: ".",
-		"src/main.css": "main.css",
 		"node_modules/prismjs/themes/prism-solarizedlight.css":
 			"prism-solarizedlight.css",
 	});
