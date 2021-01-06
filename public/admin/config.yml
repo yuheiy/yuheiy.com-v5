@@ -74,5 +74,5 @@ collections:
                         name: description
                         widget: string
                 - label: 本文
-                    name: body
-                    widget: markdown
+                  name: body
+                  widget: markdown
