@@ -38,7 +38,7 @@ $leadings: (
 // Weights
 
 $weights: (
-	normal: 400,
+	regular: 400,
 	bold: 700,
 );
 
@@ -355,10 +355,6 @@ svg:not(:root) {
 	display: flex;
 	flex-direction: column;
 	min-height: 100%;
-}
-
-.page > * {
-	flex-shrink: 0;
 }
 
 .page > :last-child {
