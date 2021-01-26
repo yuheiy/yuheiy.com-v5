@@ -110,7 +110,7 @@ Stackレイアウトというのは[Every Layoutで紹介されているCSSの�
 
 また複数のStackレイアウトが横並びになった場合に、特定の要素の配置を下部に合わせる用法もある。
 
-<iframe height="800" style="width: 100%;" scrolling="no" title="Card Grid by Stack Layouts" src="https://codepen.io/yuheiy/embed/oNzKZOr?height=800&theme-id=light&default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Card Grid by Stack Layouts" src="https://codepen.io/yuheiy/embed/oNzKZOr?height=500&theme-id=light&default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/yuheiy/pen/oNzKZOr'>Card Grid by Stack Layouts</a> by Yuhei Yasuda
   (<a href='https://codepen.io/yuheiy'>@yuheiy</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
