@@ -119,6 +119,7 @@ html {
 	overflow-wrap: break-word;
 	text-underline-offset: 0.25em;
 	font-kerning: none;
+	tab-size: 4;
 	color: var(--color-text);
 	background-color: var(--color-background);
 }
@@ -409,6 +410,11 @@ svg:not(:root) {
 	background-color: var(--color-primary);
 }
 
+.post-body h2 {
+	margin-top: var(--space-6);
+	font-size: var(--text-xl);
+}
+
 .post-body p {
 	max-width: calc(var(--measure) * 1em);
 }
@@ -427,10 +433,16 @@ svg:not(:root) {
 	margin-top: var(--space-1);
 }
 
+.post-body iframe {
+	vertical-align: bottom;
+}
+
 .post-body * + hr,
 .post-body hr + *,
 .post-body * + pre[class*="language-"],
 .post-body pre[class*="language-"] + *,
+.post-body * + iframe,
+.post-body iframe + *,
 .post-body .twitter-tweet + script + * {
 	margin-top: var(--space-5);
 }
