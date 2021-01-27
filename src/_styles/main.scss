@@ -411,7 +411,6 @@ svg:not(:root) {
 }
 
 .post-body h2 {
-	margin-top: var(--space-6);
 	font-size: var(--text-xl);
 }
 
@@ -454,4 +453,8 @@ svg:not(:root) {
 
 .post-body * + .twitter-tweet {
 	margin-top: var(--space-5) !important;
+}
+
+.post-body.post-body * + h2 {
+	margin-top: var(--space-6);
 }
