@@ -1,6 +1,7 @@
 ---
 title: 垂直方向のマージンにはmargin-topを優先的に使う理由
 published: "2021-01-26T17:13:39.216Z"
+modified: "2021-01-27T02:09:21.218Z"
 ---
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -22,7 +23,7 @@ published: "2021-01-26T17:13:39.216Z"
 たとえばページタイトルは必須だけどページの説明文は任意になる場合。
 
 ```handlebars
-<h1>{{title}}</h1>
+<h1>\{{title}}</h1>
 
 \{{#if description}}
 <p class="mt-3">\{{description}}</p>
@@ -33,7 +34,7 @@ published: "2021-01-26T17:13:39.216Z"
 
 ```handlebars
 <div class="card">
-	<p>{{title}}</p>
+	<p>\{{title}}</p>
 	<p class="mt-2">\{{description}}</p>
 
 	\{{#if link}}
@@ -46,7 +47,7 @@ published: "2021-01-26T17:13:39.216Z"
 
 ```handlebars
 <div class="card">
-	<p>垂直方向のマージンにはmargin-topを優先的に使う理由</p>
+	<p>\{{title}}</p>
 	<p class="mt-2">\{{description}}</p>
 
 	\{{#if tags}}
@@ -98,9 +99,9 @@ Stackレイアウトというのは[Every Layoutで紹介されているCSSの�
 
 ```handlebars
 <div class="stack">
-	<p>{{title}}</p>
-	<p>margin-bottomではなくmargin-topを使う派である旨をツイートしたら理由を尋ねられたので、それに対する回答です。</p>
-	<p><a href="{{prettyUrl page.url}}">さらに詳しく</a></p>
+	<p>\{{title}}</p>
+	<p>\{{description}}</p>
+	<p><a href="\{{link}}">さらに詳しく</a></p>
 </div>
 ```
 
