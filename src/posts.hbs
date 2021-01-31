@@ -15,13 +15,14 @@
 		</p>
 	</div>
 
-	<ol class="mt-6" role="list">
+	<div class="stack-5 mt-6">
 		{{#each (reverse collections.post)}}
-		<li>
-			{{> teaser title=this.data.title link=(prettyUrl this.url) description=(lede templateContent) meta=(timeHtml this.data.published)}}
-		</li>
+		{{#unless @first}}
+		<div class="divider"></div>
+		{{/unless}}
+		{{> teaser level=2 title=this.data.title link=(prettyUrl this.url) description=(lede templateContent) meta=(timeHtml this.data.published)}}
 		{{/each}}
-	</ol>
+	</div>
 </main>
 
 {{> footer}}

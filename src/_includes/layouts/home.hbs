@@ -18,24 +18,26 @@
 
 	<section id="posts" aria-labelledby="posts-heading">
 		<h2 id="posts-heading" class="mt-7 color-text-muted">おもな投稿</h2>
-		<ol class="mt-5" role="list">
+		<div class="stack-5 mt-5">
 			{{#each posts}}
-			<li>
-				{{> teaser title=this.title link=(prettyUrl this.link) description=this.description meta=this.provider}}
-			</li>
+			{{#unless @first}}
+			<div class="divider"></div>
+			{{/unless}}
+			{{> teaser level=3 title=this.title link=(prettyUrl this.link) description=this.description meta=this.provider}}
 			{{/each}}
-		</ol>
+		</div>
 	</section>
 
 	<section id="projects" aria-labelledby="projects-heading">
 		<h2 id="projects-heading" class="mt-7 color-text-muted">プロジェクト</h2>
-		<ul class="mt-5" role="list">
+		<div class="stack-5 mt-5">
 			{{#each projects}}
-			<li>
-				{{> teaser title=this.title link=(prettyUrl this.link) description=this.description}}
-			</li>
+			{{#unless @first}}
+			<div class="divider"></div>
+			{{/unless}}
+			{{> teaser level=3 title=this.title link=(prettyUrl this.link) description=this.description}}
 			{{/each}}
-		</ul>
+		</div>
 	</section>
 </main>
 

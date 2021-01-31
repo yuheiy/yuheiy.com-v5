@@ -1,13 +1,8 @@
-{{#unless @first}}
-<div class="mt-5"></div>
-<div class="divider"></div>
-<div class="mt-5"></div>
-{{/unless}}
-<div class="stack-1">
+<article class="stack-1">
 	{{#if meta}}
 	<p class="measure text-sm color-text-muted">{{{meta}}}</p>
 	{{/if}}
-	<p class="text-lg leading-tight weight-bold palt">
+	<h{{level}} class="text-lg leading-tight weight-bold palt">
 		<a class="button pt-1 pb-1" href="{{link}}">
 			<span class="with-icon with-icon--no-space">
 				<span class="measure">{{title}}</span>
@@ -16,6 +11,6 @@
 				</svg>
 			</span>
 		</a>
-	</p>
+	</h{{level}}>
 	<p class="measure text-sm color-text-muted">{{description}}</p>
-</div>
+</article>
