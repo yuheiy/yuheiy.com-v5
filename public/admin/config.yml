@@ -39,7 +39,7 @@ collections:
             name: home
             file: src/index.md
             fields:
-                - label: おもな投稿
+                - label: 主な投稿
                   name: posts
                   widget: list
                   collapsed: false
