@@ -1,16 +1,18 @@
 <article class="stack-1">
-	{{#if meta}}
-	<p class="measure text-sm color-text-muted">{{{meta}}}</p>
-	{{/if}}
-	<h{{level}} class="text-lg leading-tight weight-bold palt">
-		<a class="button pt-1 pb-1" href="{{link}}">
-			<span class="with-icon with-icon--no-space">
-				<span class="measure">{{title}}</span>
-				<svg class="color-primary" viewBox="0 0 1 1" width="1em" height="1em">
-					<use href="#icon-chevron"/>
-				</svg>
-			</span>
-		</a>
-	</h{{level}}>
+	<header class="stack-1">
+		{{#if meta}}
+		<p class="measure text-sm color-text-muted">{{{meta}}}</p>
+		{{/if}}
+		<h{{level}} class="text-lg leading-tight weight-bold palt">
+			<a class="button pt-1 pb-1" href="{{link}}">
+				<span class="with-icon with-icon--no-space">
+					<span class="measure">{{title}}</span>
+					<svg class="color-primary" viewBox="0 0 1 1" width="1em" height="1em">
+						<use href="#icon-chevron"/>
+					</svg>
+				</span>
+			</a>
+		</h{{level}}>
+	</header>
 	<p class="measure text-sm color-text-muted">{{description}}</p>
 </article>
