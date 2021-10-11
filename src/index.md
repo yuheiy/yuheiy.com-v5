@@ -101,4 +101,4 @@ eleventyComputed:
 
 {{metadata.description}}
 
-書籍『[Every Layout─モジュラーなレスポンシブデザインを実現するCSS設計論](/20211011-publication-of-everylayout)』が発売中。
+書籍『[Every Layout─モジュラーなレスポンシブデザインを実現するCSS設計論](/20211011-publication-of-everylayout)』が[Amazonで予約受付中](https://www.amazon.co.jp/dp/486246517X)。
