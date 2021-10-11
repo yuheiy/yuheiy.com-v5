@@ -52,8 +52,8 @@ ogImage: https://yuheiy.com/20211011-publication-of-everylayout/ogp.png
 
 目次:
 
-- 日本語版に寄せて
-- 監訳者まえがき
+- [日本語版に寄せて](https://book.borndigital.jp/support/EveryLayout/EveryLayout_contents.pdf)
+- [監訳者まえがき](https://book.borndigital.jp/support/EveryLayout/EveryLayout_contents.pdf)
 - 1 基礎
 	- 1–01 ボックス
 	- 1–02 コンポジション
