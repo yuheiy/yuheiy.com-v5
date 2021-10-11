@@ -4,7 +4,7 @@ permalink: "{{page.filePathStem}}.html"
 isHome: true
 
 posts:
-    - title: 『Every Layout ─モジュラーなレスポンシブデザインを実現するCSS設計論』、素直さという選択 &#35;everylayout-ja
+    - title: 『Every Layout─モジュラーなレスポンシブデザインを実現するCSS設計論』、素直さという選択 &#35;everylayout-ja
       link: /20211011-publication-of-everylayout.html
       description: 監訳を担当した書籍についての紹介。
 
