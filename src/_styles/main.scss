@@ -178,6 +178,10 @@ li {
 	list-style-type: none;
 }
 
+figure {
+	margin: 0;
+}
+
 a {
 	color: inherit;
 	text-decoration-color: var(--color-primary);
@@ -207,6 +211,11 @@ code,
 kbd,
 samp {
 	font-family: monospace, monospace;
+}
+
+img {
+	max-width: 100%;
+	vertical-align: middle;
 }
 
 svg:not(:root) {
@@ -436,13 +445,10 @@ svg:not(:root) {
 	vertical-align: bottom;
 }
 
-.post-body * + hr,
-.post-body hr + *,
-.post-body * + pre[class*="language-"],
-.post-body pre[class*="language-"] + *,
-.post-body * + iframe,
-.post-body iframe + *,
-.post-body .twitter-tweet + script + * {
+.post-body
+	:is(* + figure, figure + *, * + hr, hr + *, *
+		+ pre[class*="language-"], pre[class*="language-"] + *, * + iframe, iframe
+		+ *, .twitter-tweet + script + *) {
 	margin-top: var(--space-5);
 }
 

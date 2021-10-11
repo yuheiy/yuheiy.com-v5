@@ -4,6 +4,10 @@ permalink: "{{page.filePathStem}}.html"
 isHome: true
 
 posts:
+    - title: 『Every Layout ─モジュラーなレスポンシブデザインを実現するCSS設計論』、素直さという選択 &#35;everylayout-ja
+      link: /20211011-publication-of-everylayout.html
+      description: 監訳を担当した書籍についての紹介。
+
     - title: 「JavaScript sprinkles in Basecamp turned Stimulus」の雑要約
       link: /20201103-javascript-sprinkles-in-basecamp-turned-stimulus.html
       description: Basecampで従来記述されていたJavaScriptのパターンを抽出しつつ良いパターンに導けるように、HTMLに直接属性を記述することで振る舞いを登録するStimulusというライブラリを作った話。またなぜReactのような「モダン」なアプローチを採用しないのか。
@@ -97,4 +101,4 @@ eleventyComputed:
 
 {{metadata.description}}
 
-好きな仕様書は[ARIA in HTML](https://www.w3.org/TR/html-aria/)、好きなCSSセレクタは[要素型セレクター](https://developer.mozilla.org/ja/docs/Web/CSS/Type_selectors)。[Eleventy](https://www.11ty.dev/)と[Stimulus](https://stimulus.hotwire.dev/)、[CUBE CSS](https://cube.fyi/)のファン。[Every Layout](https://every-layout.dev/)の[監訳作業中](https://twitter.com/orange_juno/status/1230676123802988545)。
+書籍『[Every Layout─モジュラーなレスポンシブデザインを実現するCSS設計論](/20211011-publication-of-everylayout)』が発売中。

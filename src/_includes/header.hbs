@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="{{metadata.encoding}}">
 
-		<title>{{title}} - {{metadata.siteTitle}}</title>
+		<title>{{{title}}} - {{metadata.siteTitle}}</title>
 
 		<meta name="viewport" content="width=device-width">
 		{{#unless is404}}
@@ -12,9 +12,9 @@
 		<meta name="generator" content="{{env.generator}}">
 
 		{{#unless is404}}
-		<meta property="og:title" content="{{title}}">
+		<meta property="og:title" content="{{{title}}}">
 		<meta property="og:type" content="{{#if ogType}}{{ogType}}{{else}}website{{/if}}">
-		<meta property="og:image" content="{{metadata.scheme}}://{{metadata.domain}}/yuhei.png">
+		<meta property="og:image" content="{{#if ogImage}}{{ogImage}}{{else}}{{metadata.scheme}}://{{metadata.domain}}/yuhei.png{{/if}}">
 		<meta property="og:url" content="{{metadata.scheme}}://{{metadata.domain}}{{prettyUrl page.url}}">
 		<meta property="og:description" content="{{#if isPostSingle}}{{lede content}}{{else}}{{description}}{{/if}}">
 		<meta property="og:locale" content="{{metadata.lang}}_{{metadata.region}}">
