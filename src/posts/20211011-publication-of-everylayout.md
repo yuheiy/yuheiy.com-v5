@@ -1,33 +1,53 @@
 ---
 title: 『Every Layout─モジュラーなレスポンシブデザインを実現するCSS設計論』、素直さという選択 &#35;everylayout_ja
 published: "2021-10-11T09:20:00.000+09:00"
-ogImage: https://yuheiy.com/20211011-publication-of-everylayout-ogp.png
+ogImage: https://yuheiy.com/20211011-publication-of-everylayout/ogp.png
 ---
 
 <figure>
-<img src="https://www.borndigital.co.jp/wp-content/uploads/2021/10/EveryLayout_cover_obi.png" width="600" alt="">
+<img src="/20211011-publication-of-everylayout/cover.png" width="600" alt="">
 </figure>
 
 友人の[腹筋ローラーの力を信じろ](https://twitter.com/8845musign)さんと共に監訳を担当した書籍『[Every Layout─モジュラーなレスポンシブデザインを実現するCSS設計論](https://www.borndigital.co.jp/book/24204.html)』が出版されます。現在、[Amazonで予約受付中](https://www.amazon.co.jp/dp/486246517X)です。当初の予定よりもかなり遅れてしまいましたが、内容はいまだ鮮やかなままに思えます。
 
 <figure>
-<img src="https://www.borndigital.co.jp/wp-content/uploads/2021/10/sample_01-1.png" alt="">
+<img src="/20211011-publication-of-everylayout/sample_01.png" alt="">
 </figure>
 
 <figure>
-<img src="https://www.borndigital.co.jp/wp-content/uploads/2021/10/sample_02-1.png" alt="">
+<img src="/20211011-publication-of-everylayout/sample_02.png" alt="">
 </figure>
 
 <figure>
-<img src="https://www.borndigital.co.jp/wp-content/uploads/2021/10/sample_03-1.png" alt="">
+<img src="/20211011-publication-of-everylayout/sample_03.png" alt="">
 </figure>
 
 <figure>
-<img src="https://www.borndigital.co.jp/wp-content/uploads/2021/10/sample_04-1.png" alt="">
+<img src="/20211011-publication-of-everylayout/sample_04.png" alt="">
 </figure>
 
 <figure>
-<img src="https://www.borndigital.co.jp/wp-content/uploads/2021/10/sample_05-1.png" alt="">
+<img src="/20211011-publication-of-everylayout/sample_05.png" alt="">
+</figure>
+
+<figure>
+<img src="/20211011-publication-of-everylayout/sample_06.png" alt="">
+</figure>
+
+<figure>
+<img src="/20211011-publication-of-everylayout/sample_07.png" alt="">
+</figure>
+
+<figure>
+<img src="/20211011-publication-of-everylayout/sample_08.png" alt="">
+</figure>
+
+<figure>
+<img src="/20211011-publication-of-everylayout/sample_09.png" alt="">
+</figure>
+
+<figure>
+<img src="/20211011-publication-of-everylayout/sample_10.png" alt="">
 </figure>
 
 目次:
