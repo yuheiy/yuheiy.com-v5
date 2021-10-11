@@ -11,23 +11,23 @@ ogImage: https://yuheiy.com/20211011-publication-of-everylayout-ogp.png
 友人の[腹筋ローラーの力を信じろ](https://twitter.com/8845musign)さんと共に監訳を担当した書籍『[Every Layout─モジュラーなレスポンシブデザインを実現するCSS設計論](https://www.borndigital.co.jp/book/24204.html)』が出版されます。現在、[Amazonで予約受付中](https://www.amazon.co.jp/dp/486246517X)です。当初の予定よりもかなり遅れてしまいましたが、内容はいまだ鮮やかなままに思えます。
 
 <figure>
-<img src="https://www.borndigital.co.jp/wp-content/uploads/2021/10/sample_01.png" alt="">
+<img src="https://www.borndigital.co.jp/wp-content/uploads/2021/10/sample_01-1.png" alt="">
 </figure>
 
 <figure>
-<img src="https://www.borndigital.co.jp/wp-content/uploads/2021/10/sample_02.png" alt="">
+<img src="https://www.borndigital.co.jp/wp-content/uploads/2021/10/sample_02-1.png" alt="">
 </figure>
 
 <figure>
-<img src="https://www.borndigital.co.jp/wp-content/uploads/2021/10/sample_03.png" alt="">
+<img src="https://www.borndigital.co.jp/wp-content/uploads/2021/10/sample_03-1.png" alt="">
 </figure>
 
 <figure>
-<img src="https://www.borndigital.co.jp/wp-content/uploads/2021/10/sample_04.png" alt="">
+<img src="https://www.borndigital.co.jp/wp-content/uploads/2021/10/sample_04-1.png" alt="">
 </figure>
 
 <figure>
-<img src="https://www.borndigital.co.jp/wp-content/uploads/2021/10/sample_05.png" alt="">
+<img src="https://www.borndigital.co.jp/wp-content/uploads/2021/10/sample_05-1.png" alt="">
 </figure>
 
 目次:
