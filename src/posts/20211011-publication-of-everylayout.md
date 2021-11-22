@@ -1,7 +1,7 @@
 ---
 title: 『Every Layout─モジュラーなレスポンシブデザインを実現するCSS設計論』、素直さという選択 &#35;everylayout_ja
 published: "2021-10-11T09:20:00.000+09:00"
-modified: "2021-11-18T20:58:00.000+09:00"
+modified: "2021-11-22T12:05:00.000+09:00"
 ogImage: https://yuheiy.com/20211011-publication-of-everylayout/ogp.png
 ---
 
@@ -281,6 +281,7 @@ CSSはスタイリングのための言語であると同時に、ウェブデ�
 しかし重要なのは、いくつもの「考え方」を持っていることです。目の前の状況を相対化して、よりよいものにしていくためには、多くのことを学び、選択肢の数を増やし、都度適切なものを選び取れるようにしておく必要があります。その意味で、本書は、多くの人にとって新鮮な驚きをもたらしてくれる一冊であるはずです。
 
 - [Every Layout | ボーンデジタル](https://www.borndigital.co.jp/book/24204.html)
+- [PDF版 Every Layout | ボーンデジタル](https://www.borndigital.co.jp/book/24538.html)
 - [Every Layout-モジュラーなレスポンシブデザインを実現するCSS設計論 | ヘイドン・ピカリング, アンディ・ベル, 安田 祐平, 横内 宏樹, 佐藤 英一, 株式会社Bスプラウト |本 | 通販 | Amazon](https://www.amazon.co.jp/dp/486246517X)
 - [Relearn CSS layout: Every Layout](https://every-layout.dev/)
 
