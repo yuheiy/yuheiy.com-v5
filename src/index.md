@@ -101,4 +101,4 @@ eleventyComputed:
 
 {{metadata.description}}
 
-監訳を担当した書籍『[Every Layout─モジュラーなレスポンシブデザインを実現するCSS設計論](/20211011-publication-of-everylayout)』が書店や[Amazon](https://www.amazon.co.jp/dp/486246517X)などで発売中。
+監訳を担当した書籍『[Every Layout─モジュラーなレスポンシブデザインを実現するCSS設計論](/20211011-publication-of-everylayout)』が[オンライン書店などで発売中](https://www.hanmoto.com/bd/isbn/9784862465177)。
