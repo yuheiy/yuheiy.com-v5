@@ -105,7 +105,7 @@ CSSはスタイリングのための言語であると同時に、ウェブデ�
 
 - [Every Layout-モジュラーなレスポンシブデザインを実現するCSS設計論 | ヘイドン・ピカリング, アンディ・ベル, 安田 祐平, 横内 宏樹, 佐藤 英一, 株式会社Bスプラウト |本 | 通販 | Amazon](https://www.amazon.co.jp/dp/486246517X)
 - [Every Layout モジュラーなレスポンシブデザインを実現するCSS設計論 ヘイドン・ピカリング(著/文) - ボーンデジタル | 版元ドットコム](https://www.hanmoto.com/bd/isbn/9784862465177)
-- [PDF版 Every Layout | ボーンデジタル](https://www.borndigital.co.jp/book/24538.html)
+- [【PDFダウンロード版】Every Layout－モジュラーなレスポンシブデザインを実現するCSS設計論 - ボーンデジタルオンラインブックストア](https://wgn-obs.shop-pro.jp/?pid=164656047)
 - [Relearn CSS layout: Every Layout](https://every-layout.dev/)
 
 ---
