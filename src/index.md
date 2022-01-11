@@ -11,7 +11,7 @@ posts:
 
     - title: 「Every Layout」をめぐる座談会
       link: https://www.codegrid.net/series/2021-talk-about-every-layout
-      description: CodeGridにまつわる座談会。
+      description: Every Layoutにまつわる座談会。
       provider: CodeGrid
 
     - title: 『Every Layout─モジュラーなレスポンシブデザインを実現するCSS設計論』、素直さという選択 &#35;everylayout-ja
