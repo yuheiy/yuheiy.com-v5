@@ -182,6 +182,14 @@ figure {
 	margin: 0;
 }
 
+figcaption {
+	font-size: var(--text-sm);
+
+	* + & {
+		margin-top: var(--space-2);
+	}
+}
+
 a {
 	color: inherit;
 	text-decoration-color: var(--color-primary);
